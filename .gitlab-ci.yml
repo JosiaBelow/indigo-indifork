@@ -3,7 +3,7 @@ variables:
     TUTOR_PYPI_PACKAGE: tutor-indigo
     TUTOR_BUILD_IMAGE: openedx
     OPENEDX_RELEASE: nutmeg
-    GITHUB_REPO: overhangio/tutor-indigo
+    GITHUB_REPO: JosiaBelow/indigo-indifork
 
 include:
   - project: 'community/tutor-ci'
