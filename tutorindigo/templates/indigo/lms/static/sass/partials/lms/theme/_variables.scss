@@ -3,7 +3,7 @@ $primary: {{ INDIGO_PRIMARY_COLOR }};
 // Theme fonts
 $font-family-title: Plex;
 $serif: Crimson;
-$f-sans-serif: Crimson, 'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif;
+$f-sans-serif:  Arial, Crimson, 'Open Sans','Helvetica Neue', Helvetica, sans-serif;
 
 // Initialize the Open edX Bootstrap theme
 @import 'edx-bootstrap/sass/open-edx/theme';
