@@ -11,20 +11,18 @@ config = {
     "defaults": {
         "VERSION": __version__,
         "WELCOME_MESSAGE": "The place for all your online learning",
-        "PRIMARY_COLOR": "#3b85ff",  # cool blue
+        "PRIMARY_COLOR": "#f08200",  # DZ BANK Orange
         # Footer links are dictionaries with a "title" and "url"
         # To remove all links, run:
         # tutor config save --set INDIGO_FOOTER_NAV_LINKS=[] --set INDIGO_FOOTER_LEGAL_LINKS=[]
         "FOOTER_NAV_LINKS": [
-            {"title": "About", "url": "/about"},
-            {"title": "Contact", "url": "/contact"},
+            {"title": "Impressum", "url": "https://www.dzbank.de/content/dzbank_de/de/footermetanavigation/footerlinks/impressum.html"},
+            {"title": "Datenschutzhinweise", "url": "https://www.dzbank.de/content/dzbank_de/de/footermetanavigation/footerlinks/datenschutz.html"},
+            {"title": "Rechtliche Hinweise", "url": "https://www.dzbank.de/content/dzbank_de/de/footermetanavigation/footerlinks/Rechtliche_Hinweise.html"},
         ],
         "FOOTER_LEGAL_LINKS": [
-            {"title": "Terms of service", "url": "/tos"},
-            {
-                "title": "Indigo theme for Open edX",
-                "url": "https://github.com/overhangio/tutor-indigo",
-            },
+            {"title": "Über uns", "url": "https://www.dzbank.de/content/dzbank_de/de/home.html"},
+            {"title": "Kontakt", "url": "https://www.dzbank.de/content/dzbank_de/de/home/unser_profil/die_dz_bank/Kontakt.html"},
         ],
     },
     "unique": {},
