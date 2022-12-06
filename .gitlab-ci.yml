@@ -1,6 +1,6 @@
 variables:
-    TUTOR_PLUGIN: indigo
-    TUTOR_PYPI_PACKAGE: tutor-indigo
+    TUTOR_PLUGIN: customindigo
+    TUTOR_PYPI_PACKAGE: indigo-indifork
     TUTOR_BUILD_IMAGE: openedx
     OPENEDX_RELEASE: nutmeg
     GITHUB_REPO: JosiaBelow/indigo-indifork
