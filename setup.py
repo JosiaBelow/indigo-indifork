@@ -25,7 +25,7 @@ ABOUT = load_about()
 
 
 setup(
-    name="tutor-indigo",
+    name="indigo-indifork",
     version=ABOUT["__version__"],
     url="https://github.com/JosiaBelow/indigo-indifork",
     project_urls={
