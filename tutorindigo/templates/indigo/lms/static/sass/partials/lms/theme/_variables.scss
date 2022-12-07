@@ -6,4 +6,5 @@ $serif: Crimson;
 $f-sans-serif:  Arial, Crimson, 'Open Sans','Helvetica Neue', Helvetica, sans-serif;
 
 // Initialize the Open edX Bootstrap theme
+@import 'node_modules/bootstrap/scss/functions';
 @import 'edx-bootstrap/sass/open-edx/theme';
