@@ -5,7 +5,6 @@
   font-weight: 300;
   src: url('#{$static-path}/fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-300.eot'); /* IE9 Compat Modes */
   src: local(''),
-       url('#{$static-path}/fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
        url('#{$static-path}/fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-300.woff2') format('woff2'), /* Super Modern Browsers */
        url('#{$static-path}/fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-300.woff') format('woff'), /* Modern Browsers */
        url('#{$static-path}/fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-300.ttf') format('truetype'), /* Safari, Android, iOS */
