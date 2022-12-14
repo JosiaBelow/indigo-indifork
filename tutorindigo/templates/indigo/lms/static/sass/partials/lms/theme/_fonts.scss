@@ -1,13 +1,13 @@
 // SansSerif
 @font-face {
-  font-family: 'Plex';
+  font-family: 'Open Sans';
   src: url('#{$static-path}/fonts/open-sans-v34-latin-300.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Plex';
+  font-family: 'Open Sans';
   src:
     url('#{$static-path}/fonts/open-sans-v34-latin-300italic.ttf') format('truetype');
   font-weight: 300;
@@ -15,7 +15,7 @@
 }
 
 @font-face {
-  font-family: 'Plex';
+  font-family: 'Open Sans';
   src:
     url('#{$static-path}/fonts/open-sans-v34-latin-regular.ttf') format('truetype');
   font-weight: 400;
@@ -23,7 +23,7 @@
 }
 
 @font-face {
-  font-family: 'Plex';
+  font-family: 'Open Sans';
   src:
     url('#{$static-path}/fonts/open-sans-v34-latin-italic.ttf') format('truetype');
   font-weight: 400;
@@ -31,7 +31,7 @@
 }
 
 @font-face {
-  font-family: 'Plex';
+  font-family: 'Open Sans';
   src:
     url('#{$static-path}/fonts/open-sans-v34-latin-600.ttf') format('truetype');
   font-weight: 600;
@@ -39,7 +39,7 @@
 }
 
 @font-face {
-  font-family: 'Plex';
+  font-family: 'Open Sans';
   src:
     url('#{$static-path}/fonts/open-sans-v34-latin-600italic.ttf') format('truetype');
   font-weight: 600;
@@ -47,7 +47,7 @@
 }
 
 @font-face {
-  font-family: 'Plex';
+  font-family: 'Open Sans';
   src:
     url('#{$static-path}/fonts/open-sans-v34-latin-700.ttf') format('truetype');
   font-weight: 700;
@@ -55,7 +55,7 @@
 }
 
 @font-face {
-  font-family: 'Plex';
+  font-family: 'Open Sans';
   src:
     url('#{$static-path}/fonts/open-sans-v34-latin-700italic.ttf') format('truetype');
   font-weight: 700;
