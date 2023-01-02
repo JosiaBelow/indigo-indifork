@@ -77,5 +77,13 @@ from six import text_type
         }
       }
     });
+    var links = document.querySelectorAll(".video-shortcut-vertical-center a:first-child");
+    var containers = document.querySelectorAll(".course-image");
+    for (var i = links.length - 1; i >= 0; i--) {
+      var link = links[i].href.split("jump_to_id")[0]+"about";
+      containers[i].addEventListener("click", (e) => {
+        window.location.href = link;
+      });
+    }
   </script>
 </nav>
