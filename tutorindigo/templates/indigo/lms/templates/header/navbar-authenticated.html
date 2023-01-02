@@ -79,9 +79,9 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
    return false;
    });
    window.addEventListener('load', function () {
-    if (window.location.href.indexOf("investitionsfoerderung") > -1) {
+    if (window.location.href.indexOf("investitionsfoerderung") > -1 || window.location.href.indexOf("strukturierte_finanzierungen") > -1 || window.location.href.indexOf("corporate_finance") > -1 || window.location.href.indexOf("firmenkundengeschaeft") > -1) {
       $.ajax({
-        url: "https://test.chancen-finder.online/api/enrollment/v1/enrollment",
+        url: window.location.origin+"/api/enrollment/v1/enrollment",
         type: "GET",
         success: function(result){
           var links = document.querySelectorAll(".courses-container a");
