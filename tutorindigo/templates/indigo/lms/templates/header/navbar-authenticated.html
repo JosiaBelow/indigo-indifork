@@ -92,11 +92,14 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
 	    for (var j = result.length - 1; j >= 0; j--) {
 	      if (link.indexOf(result[j].course_details.course_id) > -1) {
 		link = link.replace("about","course");
+		break;
 	      }
 	    }
-	    containers[i].addEventListener("click", (e) => {
-	      window.location.href = link;
-	    });
+	    (function (link) {
+	      containers[i].addEventListener("click", (e) => {
+		window.location.href = link;
+	      });
+	    })(link);
 	  }
         }
       });
