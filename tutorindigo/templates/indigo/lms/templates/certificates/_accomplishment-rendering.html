@@ -100,6 +100,14 @@ course_mode_class = course_mode if course_mode else ''
                             <li style="font-family:Roboto, 'Segoe UI'">Auslandsgeschäft. Einfach machen!</li>
                         </ul>
                     </div>
+                    <div id='zrfgelseif-part' style='display: none;text-align:left;margin-left: 40px;color: #707172;font-family:Roboto, 'Segoe UI', Tahoma, sans-serif'>
+                        <ul>
+                            <li style="font-family:Roboto, 'Segoe UI'">Vorstellung des KompetenzCenter Nachfolge</li>
+                            <li style="font-family:Roboto, 'Segoe UI'">Anfangsüberlegungen zur Nachfolge</li>
+                            <li style="font-family:Roboto, 'Segoe UI'">Umsetzung der Nachfolge</li>
+                            <li style="font-family:Roboto, 'Segoe UI'">Vermögensfragen im Nachfolgekontext</li>
+                        </ul>
+                    </div>
                     <div id='else-part' style='display: none;text-align:left;margin-left: 40px;color: #707172;font-family:Roboto, 'Segoe UI', Tahoma, sans-serif'>
                         <ul>
                             <li  style="font-family:Roboto, 'Segoe UI'">Antragsfristen und Vorhabensbeginn bei Förderkrediten</li>
@@ -139,6 +147,9 @@ course_mode_class = course_mode if course_mode else ''
                         }  
                         else if (name == 'Auslandsgeschäft') {
                             node = document.getElementById('zfgelseif-part');
+                        } 
+                        else if (name == 'KompetenzCenter Nachfolge für Volksbanken Raiffeisenbanken') {
+                            node = document.getElementById('zrfgelseif-part');
                         }
                         else {
                             node = document.getElementById('else-part');
