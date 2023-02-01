@@ -19,6 +19,7 @@ config = {
             {"title": "Impressum", "url": "https://www.dzbank.de/content/dzbank_de/de/footermetanavigation/footerlinks/impressum.html"},
             {"title": "Datenschutzhinweise", "url": "https://www.dzbank.de/content/dzbank_de/de/footermetanavigation/footerlinks/datenschutz.html"},
             {"title": "Rechtliche Hinweise", "url": "https://www.dzbank.de/content/dzbank_de/de/footermetanavigation/footerlinks/Rechtliche_Hinweise.html"},
+            {"title": "Fehler melden", "url": "https://nuuone.atlassian.net/servicedesk/customer/portal/7"},
         ],
         "FOOTER_LEGAL_LINKS": [
             {"title": "Über uns", "url": "https://www.dzbank.de/content/dzbank_de/de/home.html"},
