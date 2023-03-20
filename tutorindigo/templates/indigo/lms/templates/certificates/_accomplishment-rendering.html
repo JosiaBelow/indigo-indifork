@@ -108,6 +108,17 @@ course_mode_class = course_mode if course_mode else ''
                             <li style="font-family:Roboto, 'Segoe UI'">Vermögensfragen im Nachfolgekontext</li>
                         </ul>
                     </div>
+                    <div id='algoif-part' style='display: none;text-align:left;margin-left: 40px;color: #707172;font-family:Roboto, 'Segoe UI', Tahoma, sans-serif'>
+                        <ul>
+                            <li style="font-family:Roboto, 'Segoe UI'">Nachfolge Algorithmus</li>
+                        </ul>
+                    </div>
+                    <div id='vrfacif-part' style='display: none;text-align:left;margin-left: 40px;color: #707172;font-family:Roboto, 'Segoe UI', Tahoma, sans-serif'>
+                        <ul>
+                            <li style="font-family:Roboto, 'Segoe UI'">Factoring in 90 Sekunden erklärt</li>
+                            <li style="font-family:Roboto, 'Segoe UI'">Für mehr Liquidität, Sicherheit und Rentabilität</li>
+                        </ul>
+                    </div>
                     <div id='else-part' style='display: none;text-align:left;margin-left: 40px;color: #707172;font-family:Roboto, 'Segoe UI', Tahoma, sans-serif'>
                         <ul>
                             <li  style="font-family:Roboto, 'Segoe UI'">Antragsfristen und Vorhabensbeginn bei Förderkrediten</li>
@@ -150,6 +161,12 @@ course_mode_class = course_mode if course_mode else ''
                         } 
                         else if (name == 'KompetenzCenter Nachfolge für Volksbanken Raiffeisenbanken') {
                             node = document.getElementById('zrfgelseif-part');
+                        }
+                        else if (name == 'Nachfolge-Algorithmus') {
+                            node = document.getElementById('algoif-part');
+                        }
+                        else if (name == 'VR Factoring') {
+                            node = document.getElementById('vrfacif-part');
                         }
                         else {
                             node = document.getElementById('else-part');
