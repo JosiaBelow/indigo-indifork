@@ -1,148 +1,182 @@
 <%! from django.utils.translation import ugettext as _ %>
 
-<%inherit file="../main.html" />
+  <%inherit file="../main.html" />
 
-<%block name="pagetitle">${_("Kursübersicht")}</%block>
+  <%block name="pagetitle">${_("Kursübersicht")}</%block>
 
 
-
-<main id="main" aria-label="Content" tabindex="-1">
+  <main id="main" aria-label="Content" tabindex="-1">
     <section class="home">
+      %if user.is_authenticated:
+        <div style="display: hidden;">user.is_authenticated == true</div>
+      %else:
+        <div style="display: hidden;">user.is_authenticated == false</div>
+      %endif
+
+      <!-- Slider -->
+      <section class="dzbankweb-cmp">
+        <div class="microsites-cmp dzbankweb-cmp cmp-slider" style="opacity: 1; min-height: 600px;">
+          <div>
+
+            <div class="slider__controls">
+
+              <div class="slider__btn-container">
+                <button type="button" class="slider__btn slider__btn--previous" aria-label="Previous">
+                  <span class="slider__btn-icon icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+                      <title>left_open</title>
+                      <polygon id="left-open"
+                        points="201.2 500 706.7 0 798.8 93.12 387.44 500 798.8 906.88 706.7 1000 201.2 500">
+                      </polygon>
+                    </svg>
+                  </span>
+                </button>
+              </div>
+
+              <div class="slider__btn-container slider__btn-container--next">
+                <button type="button" class="slider__btn slider__btn--next" aria-label="Next">
+                  <span class="slider__btn-icon icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+                      <title>right_open</title>
+                      <polygon id="right-open"
+                        points="798.8 500 293.3 1000 201.2 906.88 612.56 500 201.2 93.12 293.3 0 798.8 500">
+                      </polygon>
+                    </svg>
+                  </span>
+                </button>
+              </div>
+
+              <ul class="slider__progress-bar"></ul>
+            </div>
+
+            <ul class="slider__slides"></ul>
+
+          </div>
+        </div>
+      </section>
+      <script src="https://dz-bank.s3.eu-central-1.amazonaws.com/scripts/slideloader.js"></script>
+
       <header>
         <div class="outer-wrapper">
           <div class="title">
             <div class="heading-group">
-                <p style="font-style: normal !important; text-align: left !important; position: absolute; margin-top: 50px; font-size: 22px;">E-Learning Plattform</p>
+              <p
+                style="font-style: normal !important; text-align: left !important; position: absolute; margin-top: 50px; font-size: 22px;">
+                E-Learning Plattform
+              </p>
             </div>
-              <div class="course-search">
-                <form method="get" action="/courses">
-                  <label><span class="sr">Suche nach einem Kurs</span>
-                    <input class="search-input" name="search_query" type="text" placeholder="Suche nach einem Kurs">
-                  </label>
-                  <button class="search-button" type="submit">
-                    <span class="icon fa fa-search" aria-hidden="true"></span><span class="sr">Suche</span>
-                  </button>
-                </form>
-              </div>
-
+            <div class="course-search">
+              <form method="get" action="/courses">
+                <label><span class="sr">Suche nach einem Kurs</span>
+                  <input class="search-input" name="search_query" type="text" placeholder="Suche nach einem Kurs">
+                </label>
+                <button class="search-button" type="submit">
+                  <span class="icon fa fa-search" aria-hidden="true"></span><span class="sr">Suche</span>
+                </button>
+              </form>
+            </div>
           </div>
-
         </div>
-
       </header>
-      
 
+      <section class="courses-container">
+        <section class="highlighted-courses">
+          <section class="courses">
+            <ul class="courses-listing">
 
+              <li class="courses-listing-item">
+                <article class="course" id="investitionsfoerderung" role="region" aria-label="Firmenkunden">
+                  <a href="/investitionsfoerderung">
+                    <header class="course-image">
+                      <div class="cover-image">
+                        <img style="width: 102.5%;"
+                          src="https://dz-bank.s3.eu-central-1.amazonaws.com/1628515449349Bild_Investitionsfoerderung_chancen.finder.jpeg"
+                          alt="Investitionsfoerderung  ">
+                      </div>
+                    </header>
+                    <div class="course-info" aria-hidden="true">
+                      <h2 class="course-name">
+                        <span class="course-organization">ChancenFinder</span>
+                        <span class="course-code"> </span>
+                        <span style="color: #f08200 !important;" class="course-title">Investitionsförderung</span>
+                      </h2>
+                    </div>
+                  </a>
+                </article>
+              </li>
 
-<section class="courses-container">
-  <section class="highlighted-courses">
+              <li class="courses-listing-item">
+                <article class="course" id="firmenkundengeschaeft" role="region" aria-label="Firmenkundengeschäft">
+                  <a href="/firmenkundengeschaeft">
+                    <header class="course-image">
+                      <div class="cover-image">
+                        <img
+                          src="https://dz-bank.s3.eu-central-1.amazonaws.com/1628515448862Bild_FK-Gesch%C3%A4ft_chancen.finder.jpg"
+                          alt="Firmenkundengeschäft">
+                      </div>
+                    </header>
+                    <div class="course-info" aria-hidden="true">
+                      <h2 class="course-name">
+                        <span class="course-organization">ChancenFinder</span>
+                        <span class="course-code"> </span>
+                        <span style="color: #f08200 !important;" class="course-title">Firmenkundengeschäft</span>
+                      </h2>
+                    </div>
+                  </a>
+                </article>
+              </li>
 
-      <section class="courses">
-        <ul class="courses-listing">
-          <li class="courses-listing-item">
-              
-
-
-
-<article class="course" id="investitionsfoerderung" role="region" aria-label="Firmenkunden">
-  <a href="/investitionsfoerderung">
-    <header class="course-image">
-      <div class="cover-image">
-        <img style="width: 102.5%;" src="https://dz-bank.s3.eu-central-1.amazonaws.com/1628515449349Bild_Investitionsfoerderung_chancen.finder.jpeg" alt="Investitionsfoerderung  ">
-      </div>
-    </header>
-    <div class="course-info" aria-hidden="true">
-      <h2 class="course-name">
-        <span class="course-organization">ChancenFinder</span>
-        <span class="course-code"> </span>
-        <span style="color: #f08200 !important;" class="course-title">Investitionsförderung</span>
-      </h2>
-    
-  </a>
-</article>
-          </li>
-          <li class="courses-listing-item">
-              
-
-
-
-<article class="course" id="firmenkundengeschaeft" role="region" aria-label="Firmenkundengeschäft">
-  <a href="/firmenkundengeschaeft">
-    <header class="course-image">
-      <div class="cover-image">
-        <img src="https://dz-bank.s3.eu-central-1.amazonaws.com/1628515448862Bild_FK-Gesch%C3%A4ft_chancen.finder.jpg" alt="Firmenkundengeschäft">
-      </div>
-    </header>
-    <div class="course-info" aria-hidden="true">
-      <h2 class="course-name">
-        <span class="course-organization">ChancenFinder</span>
-        <span class="course-code"> </span>
-        <span style="color: #f08200 !important;" class="course-title">Firmenkundengeschäft</span>
-      </h2>
-      
-        
-  </a>
-</article>
-
-
-
-          </li>
             </ul>
             <ul class="courses-listing">
-          <li class="courses-listing-item">
-              
 
+              <li class="courses-listing-item">
+                <article class="course" id="corporate_finance" role="region" aria-label="Corporate Finance">
+                  <a href="/corporate_finance">
+                    <header class="course-image">
+                      <div class="cover-image">
+                        <img style="width: 102.5%;"
+                          src="https://dz-bank.s3.eu-central-1.amazonaws.com/Corporate_Finance.jpg"
+                          alt="Investitionsfoerderung  ">
+                      </div>
+                    </header>
+                    <div class="course-info" aria-hidden="true">
+                      <h2 class="course-name">
+                        <span class="course-organization">ChancenFinder</span>
+                        <span class="course-code"> </span>
+                        <span style="color: #f08200 !important;" class="course-title">KompetenzCenter Nachfolge<span
+                            style="color: #f08200 !important;padding: 0!important;margin: 0!important;visibility: hidden;/* display: table-header-group; */"
+                            class="course-title invisible-course-title-extender">llll111lllllllllCorporate
+                            Finance</span></span>
+                      </h2>
+                    </div>
+                  </a>
+                </article>
+              </li>
 
+              <li class="courses-listing-item">
+                <article class="course" id="strukturierte_finanzierungen" role="region"
+                  aria-label="Strukturierte Finanzierungen - Auslandsgeschäft">
+                  <a href="/strukturierte_finanzierungen">
+                    <header class="course-image">
+                      <div class="cover-image">
+                        <img src="https://dz-bank.s3.eu-central-1.amazonaws.com/strukturierte_finanzierungen.jpg"
+                          alt="Strukturierte Finanzierungen - Auslandsgeschäft">
+                      </div>
+                    </header>
+                    <div class="course-info" aria-hidden="true">
+                      <h2 class="course-name">
+                        <span class="course-organization">ChancenFinder</span>
+                        <span class="course-code"> </span>
+                        <span style="color: #f08200 !important;" class="course-title">Strukturierte Finanzierungen -
+                          Auslandsgeschäft</span>
+                      </h2>
+                  </a>
+                </article>
+              </li>
 
-<article class="course" id="corporate_finance" role="region" aria-label="Corporate Finance">
-  <a href="/corporate_finance">
-    <header class="course-image">
-      <div class="cover-image">
-        <img style="width: 102.5%;" src="https://dz-bank.s3.eu-central-1.amazonaws.com/Corporate_Finance.jpg" alt="Investitionsfoerderung  ">
-      </div>
-    </header>
-    <div class="course-info" aria-hidden="true">
-      <h2 class="course-name">
-        <span class="course-organization">ChancenFinder</span>
-        <span class="course-code"> </span>
-        <span style="color: #f08200 !important;" class="course-title">KompetenzCenter Nachfolge<span style="color: #f08200 !important;padding: 0!important;margin: 0!important;visibility: hidden;/* display: table-header-group; */" class="course-title invisible-course-title-extender">llll111lllllllllCorporate Finance</span></span>
-      </h2>
-    
-  </a>
-</article>
-          </li>
-          <li class="courses-listing-item">
-              
-
-
-
-<article class="course" id="strukturierte_finanzierungen" role="region" aria-label="Strukturierte Finanzierungen - Auslandsgeschäft">
-  <a href="/strukturierte_finanzierungen">
-    <header class="course-image">
-      <div class="cover-image">
-        <img src="https://dz-bank.s3.eu-central-1.amazonaws.com/strukturierte_finanzierungen.jpg" alt="Strukturierte Finanzierungen - Auslandsgeschäft">
-      </div>
-    </header>
-    <div class="course-info" aria-hidden="true">
-      <h2 class="course-name">
-        <span class="course-organization">ChancenFinder</span>
-        <span class="course-code"> </span>
-        <span style="color: #f08200 !important;" class="course-title">Strukturierte Finanzierungen - Auslandsgeschäft</span>
-      </h2>
-      
-        
-  </a>
-</article>
-
-
-
-          </li>
-        </ul>
+            </ul>
+          </section>
+        </section>
       </section>
-
-  </section>
-</section>
-
-
     </section>
-</main>
+  </main>
