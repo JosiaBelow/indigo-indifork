@@ -1,0 +1,118 @@
+{% raw %}
+<%! from django.utils.translation import ugettext as _ %>
+
+    <%inherit file="../main.html" />
+
+    <%block name="pagetitle">${_("Neue Videos")}</%block>
+
+    <main id="main" aria-label="Content" tabindex="-1">
+        <style>
+            .subsection-text.outline-button {
+                color: #707172 !important;
+                width: 100%;
+                padding: 0 0 0 0;
+                min-height: 218px;
+                text-decoration: none;
+                transition: 0.4s;
+                text-align: center;
+            }
+
+            a.subsection-text {
+                text-decoration: none !important;
+            }
+
+            h4.subsection-title {
+                margin: 5px;
+                color: #f08200 !important;
+                font-size: 1rem;
+                font-weight: bold;
+                display: block;
+                line-height: 1.2;
+                box-sizing: border-box;
+                text-align: center;
+                cursor: pointer;
+                list-style-type: none;
+            }
+
+            li.subsection-item {
+                background-color: #f0f0f0;
+                float: left;
+                width: 300px;
+                margin: 15px 15px 0 0;
+                flex: initial;
+                list-style-type: none;
+            }
+
+            li.subsection-item:hover {
+                transform: scale(1.03);
+                box-shadow: 0 10px 15px -10px rgb(0 0 0 / 70%);
+                transition: opacity 0.25s ease-out 0.25s;
+                opacity: 0.8;
+            }
+        </style>
+        <section class="home">
+            <header>
+                <div class="outer-wrapper">
+                    <div class="title">
+                        <div class="heading-group">
+                            <p
+                                style="font-style: normal !important; text-align: left !important; margin-top: 50px; font-size: 22px;">
+                                Neue Videos
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+
+            <section id="course-outline-block-tree">
+                <ol class="subsection" style="display: flex; flex-wrap: wrap;">
+
+                    <li class="subsection-item" style="background-color: #f0f0f0; list-style: none;">
+                        <a href="courses/course-v1:dz-bank+dz3+firmenkunden/courseware/94f68e4c26e745a9868b4f64162b88d9/64501f50da9446c6b26092a3cdebe7e0/2"
+                            class="subsection-text outline-button"
+                            style="position: relative;color: #707172 !important;">
+                            <span class="btn-play fa fa-youtube-play fa-2x"
+                                style="position: absolute; left: 50%; top: 45%; transform: translate(-50%, -50%); opacity: 0.6;"></span>
+                            <img style="width: 100%;"
+                                src="https://dz-bank.s3.eu-central-1.amazonaws.com/Thumbnails/Firmenkunden/effizienz_einleitung.png">
+                            <h4 class="subsection-title" style="color: #f08200 !important;">
+                                Energie- & Ressourceneffizienz in der Wirtschaft (KfW 295)
+                            </h4>
+                        </a>
+                    </li>
+
+                    <li class="subsection-item" style="background-color: #f0f0f0; list-style: none;">
+                        <a href="courses/course-v1:dz-bank+dz3+firmenkunden/courseware/94f68e4c26e745a9868b4f64162b88d9/aafe7c5f0b9549a0afdf9731eee0ed6e/1?activate_block_id=block-v1%3Adz-bank%2Bdz3%2Bfirmenkunden%2Btype%40vertical%2Bblock%40b46cede8160e4d80a711bf2eb286560e"
+                            class="subsection-text outline-button"
+                            style="position: relative;color: #707172 !important;">
+                            <span class="btn-play fa fa-youtube-play fa-2x"
+                                style="position: absolute; left: 50%; top: 45%; transform: translate(-50%, -50%); opacity: 0.6;"></span>
+                            <img style="width: 100%;"
+                                src="https://dz-bank.s3.eu-central-1.amazonaws.com/Thumbnails/Firmenkunden/DZB%2BBEG%2B081%2BBeihilfe.jpg">
+                            <h4 class="subsection-title" style="color: #f08200 !important;">
+                                Risikogerechtes Zinssystem
+                            </h4>
+                        </a>
+                    </li>
+
+                    <li class="subsection-item" style="background-color: #f0f0f0; list-style: none;">
+                        <a href="courses/course-v1:dz-bank+dz3+firmenkunden/courseware/94f68e4c26e745a9868b4f64162b88d9/faa11c4a210a4791ab99123dae5d4ae8/1?activate_block_id=block-v1%3Adz-bank%2Bdz3%2Bfirmenkunden%2Btype%40vertical%2Bblock%40fa65232b89c1482fb12e3cdcc0dbcfd6"
+                            class="subsection-text outline-button"
+                            style="position: relative;color: #707172 !important;">
+                            <span class="btn-play fa fa-youtube-play fa-2x"
+                                style="position: absolute; left: 50%; top: 45%; transform: translate(-50%, -50%); opacity: 0.6;"></span>
+                            <img style="width: 100%;"
+                                src="https://dz-bank.s3.eu-central-1.amazonaws.com/Thumbnails/Firmenkunden/DZB%2BBEG%2B081%2BBeihilfe.jpg">
+                            <h4 class="subsection-title" style="color: #f08200 !important;">
+                                Fördermittel Firmenkunden - Allgemeiner Teil
+                            </h4>
+                        </a>
+                    </li>
+
+                </ol>
+            </section>
+        </section>
+    </main>
+
+    {% endraw %}

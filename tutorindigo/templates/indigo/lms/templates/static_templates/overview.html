@@ -8,46 +8,22 @@
   <main id="main" aria-label="Content" tabindex="-1">
     <section class="home">
       %if user.is_authenticated:
-        <section class="dzbankweb-cmp">
-          <div class="microsites-cmp dzbankweb-cmp cmp-slider" style="opacity: 1; min-height: 600px;">
-            <div>
-              <div class="slider__controls">
-
-                <div class="slider__btn-container">
-                  <button type="button" class="slider__btn slider__btn--previous" aria-label="Previous">
-                    <span class="slider__btn-icon icon">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
-                        <title>left_open</title>
-                        <polygon id="left-open"
-                          points="201.2 500 706.7 0 798.8 93.12 387.44 500 798.8 906.88 706.7 1000 201.2 500">
-                        </polygon>
-                      </svg>
-                    </span>
-                  </button>
-                </div>
-
-                <div class="slider__btn-container slider__btn-container--next">
-                  <button type="button" class="slider__btn slider__btn--next" aria-label="Next">
-                    <span class="slider__btn-icon icon">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
-                        <title>right_open</title>
-                        <polygon id="right-open"
-                          points="798.8 500 293.3 1000 201.2 906.88 612.56 500 201.2 93.12 293.3 0 798.8 500">
-                        </polygon>
-                      </svg>
-                    </span>
-                  </button>
-                </div>
-
-                <ul class="slider__progress-bar"></ul>
-              </div>
-
-              <ul class="slider__slides"></ul>
-
-            </div>
-          </div>
-        </section>
-        <script src="https://dz-bank.s3.eu-central-1.amazonaws.com/scripts/slideloader.js"></script>
+      <section class="news-banner">
+        <div class="banner__content">
+          <h2 class="banner__subheadline">Hier geht es zu den neuen Videos</h2>
+          <a href="new_videos" class="banner__button">
+            <span class="button__label">Neue Videos</span>
+            <span class="button__icon icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+                <title>right_open</title>
+                <polygon id="right-open"
+                  points="798.8 500 293.3 1000 201.2 906.88 612.56 500 201.2 93.12 293.3 0 798.8 500">
+                </polygon>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </section>
       %endif
 
       <header>
