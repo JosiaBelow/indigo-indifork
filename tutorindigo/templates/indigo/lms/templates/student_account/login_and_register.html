@@ -1049,9 +1049,9 @@
             <script type="text/javascript">
                 const interval = setInterval(function() {
                     if ($('#register-email').val() != '' && $('#register-email').val() != null && typeof $('#register-email').val() != 'undefined') {
-                        emailValidation();  
-			const input = document.getElementById("register-username");
+                        const input = document.getElementById("register-username");
 			input.addEventListener("input", checkUsername);
+			emailValidation(); 
                     }
                  }, 250);
             </script>
