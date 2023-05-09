@@ -51,6 +51,23 @@
                 %>
             % endif
             <script type="text/javascript">
+		function checkUsername() {
+		  const value = input.value.trim();
+		  const notice = document.getElementById("username-notice");
+		  if (value.indexOf(" ") !== -1) {
+		    if (!notice) {
+		      const newNotice = document.createElement("div");
+		      newNotice.id = "username-notice";
+		      newNotice.style.color = "red";
+		      newNotice.textContent = "Benutzernamen dürfen kein Leerzeichen enthalten.";
+		      input.parentNode.insertBefore(newNotice, input.nextSibling);
+		    }
+		  } else {
+		    if (notice) {
+		      input.parentNode.removeChild(notice);
+		    }
+		  }
+		}
                 var domains = [
                                 "aachener-bank.de",
                                 "email.rwg.de",
@@ -1033,27 +1050,10 @@
                 const interval = setInterval(function() {
                     if ($('#register-email').val() != '' && $('#register-email').val() != null && typeof $('#register-email').val() != 'undefined') {
                         emailValidation();  
+			const input = document.getElementById("register-username");
+			input.addEventListener("input", checkUsername);
                     }
                  }, 250);
-		const input = document.getElementById("register-username");
-		input.addEventListener("input", checkUsername);
-		function checkUsername() {
-		  const value = input.value.trim();
-		  const notice = document.getElementById("username-notice");
-		  if (value.indexOf(" ") !== -1) {
-		    if (!notice) {
-		      const newNotice = document.createElement("div");
-		      newNotice.id = "username-notice";
-		      newNotice.style.color = "red";
-		      newNotice.textContent = "Benutzernamen dürfen kein Leerzeichen enthalten.";
-		      input.parentNode.insertBefore(newNotice, input.nextSibling);
-		    }
-		  } else {
-		    if (notice) {
-		      input.parentNode.removeChild(notice);
-		    }
-		  }
-		}
             </script>
         </div>
 	<div class="text-center">
