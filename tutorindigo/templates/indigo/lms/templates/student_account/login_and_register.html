@@ -1008,21 +1008,21 @@
                     var domainVar=emailVar.split('@')[1];
                   if($.inArray(domainVar,domains)>-1) {
                     $('.register-button').prop('disabled', false);
-		    if ($('.text-span').text()) {
-		    	$('.text-span').remove();
+		    if ($('.text-div').text()) {
+		    	$('.text-div').remove();
 		    }
                     return true;
                   } else {
                     $('.register-button').prop('disabled', true);
-		    if (!$('.text-span').text()) {
+		    if (!$('.text-div').text()) {
 		        const registerBtn = document.querySelector('.text-center');
-		        const span = document.createElement('span');
-		        span.textContent = 'Die Domain der eingegebenen E-Mail wurde bisher nicht freigegeben.';
-		        span.style.position = 'relative';
-		        span.style.left = '10px';
-		        span.style.top = '35px';
-		        span.classList.add('text-span');
-		        registerBtn.parentNode.insertBefore(span, registerBtn.nextSibling);
+		        const div = document.createElement('div');
+		        div.textContent = 'Die Domain der eingegebenen E-Mail wurde bisher nicht freigegeben.';
+		        div.style.position = 'relative';
+		        div.style.top = '35px';
+			div.style["text-align"] = 'center';
+		        div.classList.add('text-div');
+		        registerBtn.parentNode.insertBefore(div, registerBtn.nextSibling);
 		    }
 		    return false;
                   }
