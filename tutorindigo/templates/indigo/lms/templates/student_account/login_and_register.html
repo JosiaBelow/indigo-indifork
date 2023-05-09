@@ -1035,6 +1035,25 @@
                         emailValidation();  
                     }
                  }, 250);
+		const input = document.getElementById("register-username");
+		input.addEventListener("input", checkUsername);
+		function checkUsername() {
+		  const value = input.value.trim();
+		  const notice = document.getElementById("username-notice");
+		  if (value.indexOf(" ") !== -1) {
+		    if (!notice) {
+		      const newNotice = document.createElement("div");
+		      newNotice.id = "username-notice";
+		      newNotice.style.color = "red";
+		      newNotice.textContent = "Benutzernamen dürfen kein Leerzeichen enthalten.";
+		      input.parentNode.insertBefore(newNotice, input.nextSibling);
+		    }
+		  } else {
+		    if (notice) {
+		      input.parentNode.removeChild(notice);
+		    }
+		  }
+		}
             </script>
         </div>
 	<div class="text-center">
