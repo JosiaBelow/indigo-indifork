@@ -52,6 +52,7 @@
             % endif
             <script type="text/javascript">
 		function checkUsername() {
+		  const input = document.getElementById("register-username");
 		  const value = input.value.trim();
 		  const notice = document.getElementById("username-notice");
 		  if (value.indexOf(" ") !== -1) {
@@ -1049,11 +1050,14 @@
             <script type="text/javascript">
                 const interval = setInterval(function() {
                     if ($('#register-email').val() != '' && $('#register-email').val() != null && typeof $('#register-email').val() != 'undefined') {
-                        const input = document.getElementById("register-username");
-			input.addEventListener("input", checkUsername);
 			emailValidation(); 
                     }
                  }, 250);
+		 const interval2 = setInterval(function() {
+                    if ($('#register-username').val() != '' && $('#register-username').val() != null && typeof $('#register-username').val() != 'undefined') {
+			checkUsername();
+                    }
+                 }, 250);  
             </script>
         </div>
 	<div class="text-center">
