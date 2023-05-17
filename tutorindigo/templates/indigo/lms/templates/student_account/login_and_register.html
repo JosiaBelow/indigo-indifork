@@ -1032,7 +1032,7 @@
                     return true;
                   } else {
                     $('.register-button').prop('disabled', true);
-		    if (!$('.text-div').text()) {
+		    if (!$('.text-div').text() && emailVar.includes('@')) {
 		        const registerBtn = document.querySelector('.text-center');
 		        const div = document.createElement('div');
 		        div.textContent = 'Die Domain der eingegebenen E-Mail wurde bisher nicht freigegeben.';
