@@ -2,15 +2,13 @@
 
   <%inherit file="../main.html" />
   <%block name="pagetitle">${_("Kursübersicht")}</%block>
-<script type="text/javascript">
+  <script type="text/javascript">
         (function (require) {
             require(['course_search/js/dashboard_search_factory'], function (DashboardSearchFactory) {
-                
         DashboardSearchFactory();
-    
             });
         }).call(this, require || RequireJS.require);
-    </script>
+  </script>
   <main id="main" aria-label="Content" tabindex="-1">
     <section class="home">
       %if user.is_authenticated:
