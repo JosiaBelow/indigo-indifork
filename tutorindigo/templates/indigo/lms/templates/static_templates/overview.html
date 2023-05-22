@@ -1,14 +1,16 @@
 <%! from django.utils.translation import ugettext as _ %>
 
   <%inherit file="../main.html" />
-  <%namespace name='static' file='static_content.html'/>
   <%block name="pagetitle">${_("Kursübersicht")}</%block>
-  % if settings.FEATURES.get('ENABLE_DASHBOARD_SEARCH'):
-    <%static:require_module module_name="course_search/js/dashboard_search_factory" class_name="DashboardSearchFactory">
+<script type="text/javascript">
+        (function (require) {
+            require(['course_search/js/dashboard_search_factory'], function (DashboardSearchFactory) {
+                
         DashboardSearchFactory();
-    </%static:require_module>
-  % endif
-
+    
+            });
+        }).call(this, require || RequireJS.require);
+    </script>
   <main id="main" aria-label="Content" tabindex="-1">
     <section class="home">
       %if user.is_authenticated:
