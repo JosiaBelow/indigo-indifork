@@ -4,29 +4,36 @@
 <%inherit file="../main.html" />
 
 <%block name="pagetitle">${_("Corporate Finance")}</%block>
-
+<script type="text/javascript">
+    (function (require) {
+        require(['course_search/js/dashboard_search_factory'], function (DashboardSearchFactory) {
+    DashboardSearchFactory();
+        });
+    }).call(this, require || RequireJS.require);
+</script>
 
 
 <main id="main" aria-label="Content" tabindex="-1">
     <section class="find-courses">
         <section class="courses-container">
-            <div id="discovery-form" role="search" aria-label="course" class="wrapper-search-context">
-                <div id="discovery-message" class="search-status-label">KompetenzCenter Nachfolge: 1 Kurs</div>
-                <form class="wrapper-search-input">
-                    <label for="discovery-input" class="sr">Suche nach einem Kurs</label>
-                    <input id="discovery-input" class="discovery-input" placeholder="Suche nach einem Kurs"
-                        type="text">
-                    <button type="submit" class="button postfix discovery-submit" title="Suche">
-                        <span class="icon fa fa-search" aria-hidden="true"></span>
-                        <div aria-live="polite" aria-relevant="all">
-                            <div id="loading-indicator" class="loading-spinner hidden">
-                                <span class="icon fa fa-spinner fa-spin" aria-hidden="true"></span>
-                                <span class="sr">Ladevorgang</span>
-                            </div>
-                        </div>
+            <div id="discovery-message" class="search-status-label">KompetenzCenter Nachfolge: 1 Kurs</div>
+            % if settings.FEATURES.get('ENABLE_DASHBOARD_SEARCH'):
+              <div id="dashboard-search-bar" style="width: 270px; float: right;" class="search-bar dashboard-search-bar" role="search" aria-label="Dashboard">
+                <form class="search-form">
+                  <label for="dashboard-search-input">${_('Search Your Courses')}</label>
+                  <div class="search-field-wrapper">
+                    <input id="dashboard-search-input" type="text" class="search-field"/>
+                    <button type="submit" class="search-button" title="${_('Search')}">
+                      <span class="icon fa fa-search" aria-hidden="true"></span>
                     </button>
+                    <button type="button" class="cancel-button" title="${_('Clear search')}">
+                      <span class="icon fa fa-remove" aria-hidden="true"></span>
+                    </button>
+                  </div>
                 </form>
-            </div>
+              </div>
+              <div id="dashboard-search-results" class="search-results dashboard-search-results" style="top: 80px; position: relative; margin-bottom: 82px;"></div>
+            % endif
 
             <div id="filter-bar" class="filters hide-phone is-collapsed is-animated">
                 <div class="filters-inner">
