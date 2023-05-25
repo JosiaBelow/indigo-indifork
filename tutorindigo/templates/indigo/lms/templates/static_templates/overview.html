@@ -3,29 +3,25 @@
   <%inherit file="../main.html" />
   <%block name="pagetitle">${_("Kursübersicht")}</%block>
   <script type="text/javascript">
-        (function (require) {
-            require(['course_search/js/dashboard_search_factory'], function (DashboardSearchFactory) {
+    (function (require) {
+      require(['course_search/js/dashboard_search_factory'], function (DashboardSearchFactory) {
         DashboardSearchFactory();
-            });
-        }).call(this, require || RequireJS.require);
+      });
+    }).call(this, require || RequireJS.require);
   </script>
   <main id="main" aria-label="Content" tabindex="-1">
     <section class="home">
       %if user.is_authenticated:
       <section class="news-banner">
-        <div class="banner__content" style="background: #dfdedd; position: relative; right: 40px; width: 150%; display: flex;">
-          <h2 class="banner__subheadline" style="padding-top: 14px; padding-left: 8px; width: fit-content;">Hier geht es zu den neuen Videos</h2>
-          <a href="new_videos" class="banner__button" style="padding-top: 19px; padding-left: 8px;">
-            <span class="button__label">Neue Videos</span>
-            <span class="button__icon icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
-                <title>right_open</title>
-                <polygon id="right-open"
-                  points="798.8 500 293.3 1000 201.2 906.88 612.56 500 201.2 93.12 293.3 0 798.8 500">
-                </polygon>
-              </svg>
-            </span>
-          </a>
+        <div class="banner__content"
+          style="background: #f08200; position: relative; right: 40px; width: calc(100vw - 14px); height: 4em;">
+          <h2 class="banner__subheadline"
+            style="color: white; margin-bottom: 0; text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            Hier finden Sie
+            <a href="new_videos" class="banner__button" style=" color: white !important;">
+              unsere neuen Videos
+            </a>
+          </h2>
         </div>
       </section>
       %endif
@@ -40,21 +36,23 @@
               </p>
             </div>
             % if settings.FEATURES.get('ENABLE_DASHBOARD_SEARCH'):
-              <div id="dashboard-search-bar" style="width: 270px; float: right;" class="search-bar dashboard-search-bar" role="search" aria-label="Dashboard">
-                <form class="search-form">
-                  <label for="dashboard-search-input">${_('Search Your Courses')}</label>
-                  <div class="search-field-wrapper">
-                    <input id="dashboard-search-input" type="text" class="search-field"/>
-                    <button type="submit" class="search-button" title="${_('Search')}">
-                      <span class="icon fa fa-search" aria-hidden="true"></span>
-                    </button>
-                    <button type="button" class="cancel-button" title="${_('Clear search')}">
-                      <span class="icon fa fa-remove" aria-hidden="true"></span>
-                    </button>
-                  </div>
-                </form>
-              </div>
-              <div id="dashboard-search-results" class="search-results dashboard-search-results" style="top: 80px; position: relative; margin-bottom: 82px;"></div>
+            <div id="dashboard-search-bar" style="width: 270px; float: right;" class="search-bar dashboard-search-bar"
+              role="search" aria-label="Dashboard">
+              <form class="search-form">
+                <label for="dashboard-search-input">${_('Search Your Courses')}</label>
+                <div class="search-field-wrapper">
+                  <input id="dashboard-search-input" type="text" class="search-field" />
+                  <button type="submit" class="search-button" title="${_('Search')}">
+                    <span class="icon fa fa-search" aria-hidden="true"></span>
+                  </button>
+                  <button type="button" class="cancel-button" title="${_('Clear search')}">
+                    <span class="icon fa fa-remove" aria-hidden="true"></span>
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div id="dashboard-search-results" class="search-results dashboard-search-results"
+              style="top: 80px; position: relative; margin-bottom: 82px;"></div>
             % endif
           </div>
         </div>
