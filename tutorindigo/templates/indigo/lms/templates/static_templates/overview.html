@@ -13,14 +13,26 @@
     <section class="home">
       %if user.is_authenticated:
       <section class="news-banner">
+
         <div class="banner__content"
-          style="background: #f08200; position: relative; right: 40px; width: calc(100vw - 17px); height: 4em;">
+          style="background: #f08200; position: relative; right: 40px; width: calc(100vw - 17px);">
           <h2 class="banner__subheadline"
-            style="color: white !important; margin-bottom: 0; text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            style="color: white !important; margin-bottom: 0; text-align: center; position: absolute; top: 33%; left: 50%; transform: translate(-50%, -50%);">
             <a href="new_videos" class="banner__button" style=" color: white !important;">
               Hier finden Sie unsere neuen Videos
             </a>
           </h2>
+
+          <h2 class="banner__subheadline"
+            style="color: white !important; margin-bottom: 0; text-align: center; position: absolute; top: 66%; left: 50%; transform: translate(-50%, -50%);">
+            <img src="https://dz-bank.s3.eu-central-1.amazonaws.com/images/Megafon.png" alt="Megafon"
+              style="height: 2em;">
+            <a href="https://qfreeaccountssjc1.az1.qualtrics.com/jfe/form/SV_2fR6yNEfNTYNx2u" class="banner__button"
+              style=" color: white !important;">
+              Umfrage zu Fördermittel-Kommunikationskanälen der DZ BANK
+            </a>
+          </h2>
+
         </div>
       </section>
       %endif
