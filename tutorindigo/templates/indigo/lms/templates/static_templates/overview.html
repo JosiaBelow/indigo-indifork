@@ -9,164 +9,85 @@
       });
     }).call(this, require || RequireJS.require);
   </script>
-  <main id="main" aria-label="Content" tabindex="-1">
-    <section class="home">
-      %if user.is_authenticated:
-      <section class="news-banner">
-
-        <div class="banner__content"
-          style="background: #f08200; position: relative; right: 40px; width: calc(100vw - 17px);">
-          <h2 class="banner__subheadline"
-            style="color: white !important; margin-bottom: 0; text-align: center; position: absolute; top: 33%; left: 50%; transform: translate(-50%, -50%);">
-            <a href="new_videos" class="banner__button" style=" color: white !important;">
-              Hier finden Sie unsere neuen Videos
-            </a>
-          </h2>
-
-          <!--<h2 class="banner__subheadline"
-            style="color: white !important; margin-bottom: 0; text-align: center; position: absolute; top: 66%; left: 50%; transform: translate(-50%, -50%);">
-            <img src="https://dz-bank.s3.eu-central-1.amazonaws.com/images/Megafon.png" alt="Megafon"
-              style="height: 2em;">
-            <a href="https://qfreeaccountssjc1.az1.qualtrics.com/jfe/form/SV_2fR6yNEfNTYNx2u" class="banner__button"
-              style=" color: white !important;">
-              Umfrage zu Fördermittel-Kommunikationskanälen der DZ BANK
-            </a>
-          </h2>-->
-
+  <main>
+    <div style="position: absolute; left: 0; width: 100vw; height: 500px; background: url('https://dz-bank.s3.eu-central-1.amazonaws.com/DZBChancenfinder_Hero1.jpg') no-repeat center center / cover;"></div>
+    <div style="padding-top: 75px; z-index: 2; position: relative; margin-left: 17%;">
+        <div style="text-align: start; margin-bottom: 20px; color: rgb(255, 255, 255)!important; font-size: 3em; font-weight: 600; line-height: 1;">ChancenFinder <br>E-Learning Plattform</div>
+        <div style="color: rgb(255, 255, 255)!important; max-width: 400px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus esse omnis explicabo perspiciatis alias doloribus placeat odit. Reprehenderit, itaque eum. Repudiandae eum dolores architecto esse eveniet reiciendis eligendi explicabo obcaecati.</div>
+        <div style="margin-top: 20px;"><a class="btn" href="">Zu den Kursen ></a></div>
+    </div>
+    <div class="container" style="padding-top: 210px">
+        <div class="welcome">
+            <h1 class="welcome-title">Willkommen im Chancenfinder</h1>
+            <p class="welcome-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            <p class="welcome-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            <a href="#" class="btn">Weiter zur Kursübersicht <i>›</i></a>
         </div>
-      </section>
-      %endif
-
-      <header>
-        <div class="outer-wrapper">
-          <div class="title">
-            <div class="heading-group">
-              <p
-                style="font-style: normal !important; text-align: left !important; position: absolute; margin-top: 50px; font-size: 22px;">
-                E-Learning Plattform
-              </p>
-            </div>
-            % if settings.FEATURES.get('ENABLE_DASHBOARD_SEARCH'):
-            <div id="dashboard-search-bar" style="width: 270px; float: right;" class="search-bar dashboard-search-bar"
-              role="search" aria-label="Dashboard">
-              <form class="search-form">
-                <label for="dashboard-search-input">${_('Search Your Courses')}</label>
-                <div class="search-field-wrapper">
-                  <input id="dashboard-search-input" type="text" class="search-field" />
-                  <button type="submit" class="search-button" title="${_('Search')}">
-                    <span class="icon fa fa-search" aria-hidden="true"></span>
-                  </button>
-                  <button type="button" class="cancel-button" title="${_('Clear search')}">
-                    <span class="icon fa fa-remove" aria-hidden="true"></span>
-                  </button>
+         %if user.is_authenticated:
+        <div class="video-section">
+            <h2 class="section-title">Neue Videos</h2>
+            
+            <div id="video-container" class="video-list">
+                <div class="video-item template" style="display: none;">
+                    <div class="video-info">
+                        <p class="video-date">14.04.2025</p>
+                        <p class="video-category">Allgemeine Rahmenbedingungen / Gewerbe</p>
+                        <h3 class="video-title">Kumulierungsmöglichkeiten verschiedener Beihilfen</h3>
+                    </div>
+                    <div class="video-image">
+                        <img src="https://dz-bank.s3.eu-central-1.amazonaws.com/1628515448862Bild_FK-Gesch%C3%A4ft_chancen.finder.jpg" alt="Video thumbnail">
+                        <div class="video-overlay">
+                            Kumulierungsmöglichkeiten verschiedener Beihilfen
+                        </div>
+                    </div>
                 </div>
-              </form>
+                
+                <div class="video-item">
+                    <div class="video-info">
+                        <p class="video-date">14.04.2025</p>
+                        <p class="video-category">Allgemeine Rahmenbedingungen / Gewerbe</p>
+                        <h3 class="video-title">Kumulierungsmöglichkeiten verschiedener Beihilfen</h3>
+                    </div>
+                    <div class="video-image">
+                        <img src="https://dz-bank.s3.eu-central-1.amazonaws.com/1628515448862Bild_FK-Gesch%C3%A4ft_chancen.finder.jpg" alt="Video thumbnail">
+                        <div class="video-overlay">
+                            Kumulierungsmöglichkeiten verschiedener Beihilfen
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-info">
+                        <p class="video-date">14.04.2025</p>
+                        <p class="video-category">Landesförderinstitute - Bayern / Gewerbe</p>
+                        <h3 class="video-title">L-Bank Innovationsfinanzierung 4.0 - Neuer Programmteil KI</h3>
+                    </div>
+                    <div class="video-image">
+                        <img src="https://dz-bank.s3.eu-central-1.amazonaws.com/1628515448862Bild_FK-Gesch%C3%A4ft_chancen.finder.jpg" alt="Video thumbnail">
+                        <div class="video-overlay">
+                            Kumulierungsmöglichkeiten verschiedener Beihilfen
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-info">
+                        <p class="video-date">14.04.2025</p>
+                        <p class="video-category">Allgemeine Rahmenbedingungen / Gewerbe</p>
+                        <h3 class="video-title">Kumulierungsmöglichkeiten verschiedener Beihilfen</h3>
+                    </div>
+                    <div class="video-image">
+                        <img src="https://dz-bank.s3.eu-central-1.amazonaws.com/1628515448862Bild_FK-Gesch%C3%A4ft_chancen.finder.jpg" alt="Video thumbnail">
+                        <div class="video-overlay">
+                            Kumulierungsmöglichkeiten verschiedener Beihilfen
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="dashboard-search-results" class="search-results dashboard-search-results"
-              style="top: 80px; position: relative; margin-bottom: 82px;"></div>
-            % endif
-          </div>
+            
+            <a href="/new_videos" class="more-link">Mehr ...</a>
         </div>
-      </header>
-
-      <section class="courses-container">
-        <section class="highlighted-courses">
-          <section class="courses">
-            <ul class="courses-listing">
-
-              <li class="courses-listing-item">
-                <article class="course" id="investitionsfoerderung" role="region" aria-label="Firmenkunden">
-                  <a href="/investitionsfoerderung">
-                    <header class="course-image">
-                      <div class="cover-image">
-                        <img style="width: 102.5%;"
-                          src="https://dz-bank.s3.eu-central-1.amazonaws.com/1628515449349Bild_Investitionsfoerderung_chancen.finder.jpeg"
-                          alt="Investitionsfoerderung  ">
-                      </div>
-                    </header>
-                    <div class="course-info" aria-hidden="true">
-                      <h2 class="course-name">
-                        <span class="course-organization">ChancenFinder</span>
-                        <span class="course-code"> </span>
-                        <span style="color: #f08200 !important;" class="course-title">Investitionsförderung</span>
-                      </h2>
-                    </div>
-                  </a>
-                </article>
-              </li>
-
-              <li class="courses-listing-item">
-                <article class="course" id="firmenkundengeschaeft" role="region" aria-label="Firmenkundengeschäft">
-                  <a href="/firmenkundengeschaeft">
-                    <header class="course-image">
-                      <div class="cover-image">
-                        <img
-                          src="https://dz-bank.s3.eu-central-1.amazonaws.com/1628515448862Bild_FK-Gesch%C3%A4ft_chancen.finder.jpg"
-                          alt="Firmenkundengeschäft">
-                      </div>
-                    </header>
-                    <div class="course-info" aria-hidden="true">
-                      <h2 class="course-name">
-                        <span class="course-organization">ChancenFinder</span>
-                        <span class="course-code"> </span>
-                        <span style="color: #f08200 !important;" class="course-title">Firmenkundengeschäft</span>
-                      </h2>
-                    </div>
-                  </a>
-                </article>
-              </li>
-
-            </ul>
-            <ul class="courses-listing">
-
-              <li class="courses-listing-item">
-                <article class="course" id="corporate_finance" role="region" aria-label="Corporate Finance">
-                  <a href="/corporate_finance">
-                    <header class="course-image">
-                      <div class="cover-image">
-                        <img style="width: 102.5%;"
-                          src="https://dz-bank.s3.eu-central-1.amazonaws.com/Corporate_Finance.jpg"
-                          alt="Investitionsfoerderung  ">
-                      </div>
-                    </header>
-                    <div class="course-info" aria-hidden="true">
-                      <h2 class="course-name">
-                        <span class="course-organization">ChancenFinder</span>
-                        <span class="course-code"> </span>
-                        <span style="color: #f08200 !important;" class="course-title">KompetenzCenter Nachfolge<span
-                            style="color: #f08200 !important;padding: 0!important;margin: 0!important;visibility: hidden;/* display: table-header-group; */"
-                            class="course-title invisible-course-title-extender">llll111lllllllllCorporate
-                            Finance</span></span>
-                      </h2>
-                    </div>
-                  </a>
-                </article>
-              </li>
-
-              <li class="courses-listing-item">
-                <article class="course" id="strukturierte_finanzierungen" role="region"
-                  aria-label="Strukturierte Finanzierungen - Auslandsgeschäft">
-                  <a href="/strukturierte_finanzierungen">
-                    <header class="course-image">
-                      <div class="cover-image">
-                        <img src="https://dz-bank.s3.eu-central-1.amazonaws.com/strukturierte_finanzierungen.jpg"
-                          alt="Strukturierte Finanzierungen - Auslandsgeschäft">
-                      </div>
-                    </header>
-                    <div class="course-info" aria-hidden="true">
-                      <h2 class="course-name">
-                        <span class="course-organization">ChancenFinder</span>
-                        <span class="course-code"> </span>
-                        <span style="color: #f08200 !important;" class="course-title">Strukturierte Finanzierungen -
-                          Auslandsgeschäft</span>
-                      </h2>
-                  </a>
-                </article>
-              </li>
-
-            </ul>
-          </section>
-        </section>
-      </section>
-    </section>
-  </main>
+      %endif
+    </div>
+    <script src="https://dz-bank.s3.eu-central-1.amazonaws.com/overview.js"></script>
+</main>
