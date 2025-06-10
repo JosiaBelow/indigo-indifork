@@ -1,0 +1,93 @@
+<%! from django.utils.translation import ugettext as _ %>
+
+  <%inherit file="../main.html" />
+  <%block name="pagetitle">${_("Kursübersicht")}</%block>
+  <script type="text/javascript">
+    (function (require) {
+      require(['course_search/js/dashboard_search_factory'], function (DashboardSearchFactory) {
+        DashboardSearchFactory();
+      });
+    }).call(this, require || RequireJS.require);
+  </script>
+  <main>
+    <div class="absolute-unit"></div>
+    <div class="in-image-container">
+        <div class="in-image-header">ChancenFinder <br>E-Learning Plattform</div>
+        <div class="welcome-text" style="color: rgb(255, 255, 255)!important; max-width: 400px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus esse omnis explicabo perspiciatis alias doloribus placeat odit. Reprehenderit, itaque eum. Repudiandae eum dolores architecto esse eveniet reiciendis eligendi explicabo obcaecati.</div>
+        <div style="margin-top: 20px;"><a class="btn" href="">Zu den Kursen ></a></div>
+    </div>
+    <div class="overview-container" style="padding-top: 210px">
+        <div class="welcome">
+            <h2 class="welcome-title">Willkommen im Chancenfinder</h2>
+            <p class="welcome-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            <p class="welcome-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            <a href="#" class="btn">Weiter zur Kursübersicht ></a>
+        </div>
+         %if user.is_authenticated:
+        <div class="video-section">
+            <h2 class="section-title">Neue Videos</h2>
+            
+            <div id="video-container" class="video-list">
+                <div class="video-item template" style="display: none;">
+                    <div class="video-info">
+                        <p class="video-date">14.04.2025</p>
+                        <p class="video-category">Allgemeine Rahmenbedingungen / Gewerbe</p>
+                        <h3 class="video-title">Kumulierungsmöglichkeiten verschiedener Beihilfen</h3>
+                    </div>
+                    <div class="video-image">
+                        <img src="https://dz-bank.s3.eu-central-1.amazonaws.com/1628515448862Bild_FK-Gesch%C3%A4ft_chancen.finder.jpg" alt="Video thumbnail">
+                        <div class="video-overlay">
+                            Kumulierungsmöglichkeiten verschiedener Beihilfen
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-info">
+                        <p class="video-date">14.04.2025</p>
+                        <p class="video-category">Allgemeine Rahmenbedingungen / Gewerbe</p>
+                        <h3 class="video-title">Kumulierungsmöglichkeiten verschiedener Beihilfen</h3>
+                    </div>
+                    <div class="video-image">
+                        <img src="https://dz-bank.s3.eu-central-1.amazonaws.com/1628515448862Bild_FK-Gesch%C3%A4ft_chancen.finder.jpg" alt="Video thumbnail">
+                        <div class="video-overlay">
+                            Kumulierungsmöglichkeiten verschiedener Beihilfen
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-info">
+                        <p class="video-date">14.04.2025</p>
+                        <p class="video-category">Landesförderinstitute - Bayern / Gewerbe</p>
+                        <h3 class="video-title">L-Bank Innovationsfinanzierung 4.0 - Neuer Programmteil KI</h3>
+                    </div>
+                    <div class="video-image">
+                        <img src="https://dz-bank.s3.eu-central-1.amazonaws.com/1628515448862Bild_FK-Gesch%C3%A4ft_chancen.finder.jpg" alt="Video thumbnail">
+                        <div class="video-overlay">
+                            Kumulierungsmöglichkeiten verschiedener Beihilfen
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-info">
+                        <p class="video-date">14.04.2025</p>
+                        <p class="video-category">Allgemeine Rahmenbedingungen / Gewerbe</p>
+                        <h3 class="video-title">Kumulierungsmöglichkeiten verschiedener Beihilfen</h3>
+                    </div>
+                    <div class="video-image">
+                        <img src="https://dz-bank.s3.eu-central-1.amazonaws.com/1628515448862Bild_FK-Gesch%C3%A4ft_chancen.finder.jpg" alt="Video thumbnail">
+                        <div class="video-overlay">
+                            Kumulierungsmöglichkeiten verschiedener Beihilfen
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="/new_videos" class="more-link">Mehr ...</a>
+        </div>
+      %endif
+    </div>
+    <script src="https://dz-bank.s3.eu-central-1.amazonaws.com/overview.js"></script>
+</main>
