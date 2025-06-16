@@ -79,37 +79,8 @@ from common.djangoapps.student.models import CourseEnrollment
                 });
             }).call(this, require || RequireJS.require);
         </script>
-        <section class="find-courses">
+        <section class="find-courses" style="top:-56px">
             <section class="courses-container">
-                % if settings.FEATURES.get('ENABLE_DASHBOARD_SEARCH'):
-                <div id="dashboard-search-bar" style="width: 270px; float: right;"
-                    class="search-bar dashboard-search-bar" role="search" aria-label="Dashboard">
-                    <form class="search-form">
-                        <label for="dashboard-search-input">${_('Search Your Courses')}</label>
-                        <div class="search-field-wrapper">
-                            <input id="dashboard-search-input" type="text" class="search-field" />
-                            <button type="submit" class="search-button" title="${_('Search')}">
-                                <span class="icon fa fa-search" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" class="cancel-button" title="${_('Clear search')}">
-                                <span class="icon fa fa-remove" aria-hidden="true"></span>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                <div id="dashboard-search-results" class="search-results dashboard-search-results"
-                    style="top: 80px; position: relative; margin-bottom: 82px;"></div>
-                % endif
-
-                <div id="filter-bar" class="filters hide-phone is-collapsed is-animated">
-                    <div class="filters-inner">
-                        <ul class="active-filters facet-list"></ul>
-                        <button id="clear-all-filters"
-                            class="clear-filters flt-right discovery-button">Zurücksetzen</button>
-                    </div>
-
-                </div>
-
                 <div class="courses" role="region" aria-label="Kursliste Investitionsförderung">
                     <div class="blocker-wrapper" style="background-image: url('https://dz-bank.s3.eu-central-1.amazonaws.com/1628515449349Bild_Investitionsfoerderung_chancen.finder.jpeg'); background-size: cover; background-position: center; min-height: 250px; display: flex; align-items: center; justify-content: flex-start; text-align: left; margin-bottom: 2rem;">
                         <div class="blocker-text-wrapper">
@@ -970,7 +941,34 @@ from common.djangoapps.student.models import CourseEnrollment
                         </li>
                     </ul>
                 </div>
+                % if settings.FEATURES.get('ENABLE_DASHBOARD_SEARCH'):
+                <div id="dashboard-search-bar" style="width: 270px; float: right;"
+                    class="search-bar dashboard-search-bar" role="search" aria-label="Dashboard">
+                    <form class="search-form">
+                        <label for="dashboard-search-input">${_('Search Your Courses')}</label>
+                        <div class="search-field-wrapper">
+                            <input id="dashboard-search-input" type="text" class="search-field" />
+                            <button type="submit" class="search-button" title="${_('Search')}">
+                                <span class="icon fa fa-search" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="cancel-button" title="${_('Clear search')}">
+                                <span class="icon fa fa-remove" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div id="dashboard-search-results" class="search-results dashboard-search-results"
+                    style="top: 80px; position: relative; margin-bottom: 82px;"></div>
+                % endif
 
+                <div id="filter-bar" class="filters hide-phone is-collapsed is-animated">
+                    <div class="filters-inner">
+                        <ul class="active-filters facet-list"></ul>
+                        <button id="clear-all-filters"
+                            class="clear-filters flt-right discovery-button">Zurücksetzen</button>
+                    </div>
+
+                </div>
 
                 <aside aria-label="Suche filtern" class="search-facets phone-menu">
                     <h2 class="header-search-facets">Suche filtern</h2>
