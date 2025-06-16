@@ -38,7 +38,7 @@ from common.djangoapps.student.models import CourseEnrollment
 
             .blocker-text-wrapper {
                 position: absolute;
-                padding-left: calc((100% - (1385px)) / 2);
+                padding-left: calc(((100% - (1385px)) / 2 ) - 12px);
                 padding-top: 87px;
                 height: calc(100% - 87px);
                 text-align: left;
@@ -79,7 +79,7 @@ from common.djangoapps.student.models import CourseEnrollment
                 });
             }).call(this, require || RequireJS.require);
         </script>
-        <section class="find-courses" style="top:-56px">
+        <section class="find-courses" style="top:-56px; position: relative;">
             <section class="courses-container">
                 <div class="courses" role="region" aria-label="Kursliste Investitionsförderung">
                     <div class="blocker-wrapper" style="background-image: url('https://dz-bank.s3.eu-central-1.amazonaws.com/1628515449349Bild_Investitionsfoerderung_chancen.finder.jpeg'); background-size: cover; background-position: center; min-height: 250px; display: flex; align-items: center; justify-content: flex-start; text-align: left; margin-bottom: 2rem;">
