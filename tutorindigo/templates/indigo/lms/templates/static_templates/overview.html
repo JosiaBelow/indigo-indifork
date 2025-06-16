@@ -29,26 +29,35 @@ from common.djangoapps.student.models import CourseEnrollment
             .blocker-wrapper {
                 flex: 1 1;
                 position: relative;
+                right: calc((100vw - (1385px)) / 2 );
+                width: 100vw;
+                height: 600px;
                 margin: 0 0 20px;
-                color: #fff
+                color: #fff;
             }
 
             .blocker-text-wrapper {
                 position: absolute;
-                top: 20%;
-                left: 10%;
-                -webkit-transform: translateX(-10%) translateY(-20%);
-                transform: translateX(-10%) translateY(-20%);
+                padding-left: calc((100% - (1385px)) / 2);
+                padding-top: 87px;
+                height: calc(100% - 87px);
                 text-align: left;
-                color: white;
-                width: 66%;
-                max-width: 800px;
+                color: #f08200;
+                background: linear-gradient(90deg, rgb(255, 255, 255, 0.85), transparent);
+                width: 1375px;
             }
 
             .blocker-text {
-                color: white !important;
+                color: #f08200 !important;
                 text-align: left;
                 line-height: 1.5em;
+            }
+
+            .blocker-description {
+                color: #484848 !important;
+                font-size: 20px;
+                line-height: 22px;
+                width: 400px;
             }
 
             @media screen and (max-width: 50em) {
@@ -102,11 +111,8 @@ from common.djangoapps.student.models import CourseEnrollment
                 </div>
 
                 <div class="courses" role="region" aria-label="Kursliste Investitionsförderung">
-                    <div class="blocker-wrapper" style="background-image: url('https://dz-bank.s3.eu-central-1.amazonaws.com/1628515449349Bild_Investitionsfoerderung_chancen.finder.jpeg'); background-size: cover; background-position: center; min-height: 250px; display: flex; align-items: center; justify-content: flex-start; text-align: left; margin-bottom: 2rem;">
-                        <div class="blocker-text-wrapper">
-                            <h2 class="blocker-text" style="font-size: 2.5rem; font-weight: bold;">Investitionsförderung</h2>
-                        </div>
-                    </div>
+                    <h2 style="font-size: 2.813rem; margin: 2rem 0;">Investitionsförderung</h2>
+                    <p class="blocker-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua.</p>
                     <ul class="courses-listing courses-list">
                         <li class="courses-listing-item">
                             <article class="course" role="region" aria-label="Firmenkunden">
@@ -644,11 +650,8 @@ from common.djangoapps.student.models import CourseEnrollment
                 </div>
                 
                 <div class="courses" role="region" aria-label="Firmenkundengeschäft">
-                    <div class="blocker-wrapper" style="background-image: url('https://dz-bank.s3.eu-central-1.amazonaws.com/1628515448862Bild_FK-Gesch%C3%A4ft_chancen.finder.jpg'); background-size: cover; background-position: center; min-height: 250px; display: flex; align-items: center; justify-content: flex-start; text-align: left; margin-bottom: 2rem;">
-                        <div class="blocker-text-wrapper">
-                            <h2 class="blocker-text" style="font-size: 2.5rem; font-weight: bold;">Firmenkundengeschäft</h2>
-                        </div>
-                    </div>
+                     <h2 style="font-size: 2.813rem; margin: 2rem 0;">Firmenkundengeschäft</h2>
+                     <p class="blocker-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua.</p>
                     <ul class="courses-listing courses-list">
                         <li class="courses-listing-item">
                             <article class="course" role="region" aria-label="VR GeschäftsNavigator">
@@ -801,11 +804,8 @@ from common.djangoapps.student.models import CourseEnrollment
                 </div>
                 
                 <div class="courses" role="region" aria-label="KompetenzCenter Nachfolge">
-                    <div class="blocker-wrapper" style="background-image: url('https://dz-bank.s3.eu-central-1.amazonaws.com/Corporate_Finance.jpg'); background-size: cover; background-position: center; min-height: 250px; display: flex; align-items: center; justify-content: flex-start; text-align: left; margin-bottom: 2rem;">
-                        <div class="blocker-text-wrapper">
-                            <h2 class="blocker-text" style="font-size: 2.5rem; font-weight: bold;">KompetenzCenter Nachfolge</h2>
-                        </div>
-                    </div>
+                    <h2 style="font-size: 2.813rem; margin: 2rem 0;">KompetenzCenter Nachfolge</h2>
+                    <p class="blocker-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua.</p>
                      <ul class="courses-listing courses-list">
                         <li class="courses-listing-item">
                             <article class="course" role="region" aria-label="KompetenzCenter Nachfolge für Volksbanken Raiffeisenbanken">
@@ -856,11 +856,8 @@ from common.djangoapps.student.models import CourseEnrollment
                 </div>
                 
                 <div class="courses" role="region" aria-label="Strukturierte Finanzierungen - Auslandsgeschäft">
-                    <div class="blocker-wrapper" style="background-image: url('https://dz-bank.s3.eu-central-1.amazonaws.com/strukturierte_finanzierungen.jpg'); background-size: cover; background-position: center; min-height: 250px; display: flex; align-items: center; justify-content: flex-start; text-align: left; margin-bottom: 2rem;">
-                        <div class="blocker-text-wrapper">
-                            <h2 class="blocker-text" style="font-size: 2.5rem; font-weight: bold;">Strukturierte Finanzierungen - Auslandsgeschäft</h2>
-                        </div>
-                    </div>
+                    <h2 style="font-size: 2.813rem; margin: 2rem 0;">Strukturierte Finanzierungen - Auslandsgeschäft</h2>
+                    <p class="blocker-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua.</p>
                     <ul class="courses-listing courses-list">
                         <li class="courses-listing-item">
                             <article class="course" role="region" aria-label="Auslandsgeschäft">
