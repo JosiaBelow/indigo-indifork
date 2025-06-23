@@ -113,23 +113,15 @@ is_course_staff = bool(user and course and has_access(user, 'staff', course, cou
         
           sectionButtons.forEach(button => {
             button.addEventListener('click', () => {
-              const expanded = button.getAttribute('aria-expanded') === 'true';
-              const newExpanded = !expanded;
-        
-              button.setAttribute('aria-expanded', newExpanded.toString());
-        
-              // Toggle icon
               const icon = button.querySelector('.fa');
-              if (icon) {
-                icon.classList.toggle('fa-minus', newExpanded);
-                icon.classList.toggle('fa-plus', !newExpanded);
-              }
         
-              // Toggle associated panel
-              const panelId = button.getAttribute('aria-controls');
-              const panel = document.getElementById(panelId);
-              if (panel) {
-                panel.classList.toggle('is-hidden', !newExpanded);
+              if (!icon) return;
+        
+              // Toggle fa-minus (fa-plus remains)
+              if (icon.classList.contains('fa-minus')) {
+                icon.classList.remove('fa-minus');
+              } else {
+                icon.classList.add('fa-minus');
               }
             });
           });
