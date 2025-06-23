@@ -18,7 +18,6 @@ from openedx.core.djangolib.markup import HTML, Text
 
 <%
 course_sections = blocks.get('children')
-self_paced = context.get('self_paced', False)
 is_course_staff = bool(user and course and has_access(user, 'staff', course, course.id))
 %>
 <main role="main" class="course-outline" id="main" tabindex="-1">
@@ -109,8 +108,6 @@ is_course_staff = bool(user and course and has_access(user, 'staff', course, cou
         </ol>
     % endif
 </main>
-
-</%static:require_module_async>
 
 <%static:webpack entry="CourseOutline">
     new CourseOutline();
