@@ -7,7 +7,6 @@
 <%!
 import json
 import pytz
-from datetime import date, datetime, timedelta
 
 from django.utils import timezone
 from django.utils.translation import gettext as _
@@ -15,18 +14,14 @@ from django.utils.translation import ngettext
 
 from lms.djangoapps.courseware.access import has_access
 from openedx.core.djangolib.markup import HTML, Text
-from openedx.features.course_experience import RELATIVE_DATES_FLAG
 %>
 
 <%
 course_sections = blocks.get('children')
 self_paced = context.get('self_paced', False)
-relative_dates_flag_is_enabled = RELATIVE_DATES_FLAG.is_enabled(course_key)
 is_course_staff = bool(user and course and has_access(user, 'staff', course, course.id))
-dates_banner_displayed = False
 %>
 <main role="main" class="course-outline" id="main" tabindex="-1">
-    <%include file="/dates_banner.html" />
     % if course_sections is not None:
         <button class="btn btn-outline-primary pull-right"
                 id="expand-collapse-outline-all-button"
@@ -103,64 +98,8 @@ dates_banner_displayed = False
                                     </div>
                             % endif
                                         <div class="details">
-
-                ## There are behavior differences between rendering of subsections which have
-                ## exams (timed, graded, etc) and those that do not.
-                ##
-                ## Exam subsections expose exam status message field as well as a status icon
-                <%
-                if subsection.get('due') is None or (self_paced and not in_edx_when):
-                    # examples: Homework, Lab, etc.
-                    data_string = subsection.get('format')
-                    data_datetime = ""
-                else:
-                    if 'special_exam_info' in subsection:
-                        data_string = _('due {date}')
-                    else:
-                        data_string = _("{subsection_format} due {{date}}").format(subsection_format=subsection.get('format'))
-                    data_datetime = subsection.get('due')
-                %>
-                % if subsection.get('format') or 'special_exam_info' in subsection:
-                                            <span class="subtitle">
-                    % if 'special_exam_info' in subsection:
-                                                    ## Display the exam status icon and status message
-                                                    <span
-                                                        class="menu-icon icon fa ${subsection['special_exam_info'].get('suggested_icon', 'fa-pencil-square-o')} ${subsection['special_exam_info'].get('status', 'eligible')}"
-                                                        aria-hidden="true"
-                                                    ></span>
-                                                    <span class="subtitle-name">
-                                                        ${subsection['special_exam_info'].get('short_description', '')}
-                                                    </span>
-
-                        ## completed exam statuses should not show the due date
-                        ## since the exam has already been submitted by the user
-                        % if not subsection['special_exam_info'].get('in_completed_state', False):
-                                                        <span
-                                                            class="localized-datetime subtitle-name"
-                                                            data-datetime="${data_datetime}"
-                                                            data-string="${data_string}"
-                                                            data-timezone="${user_timezone}"
-                                                            data-language="${user_language}"
-                                                        ></span>
-                        % endif
-                    % else:
-                                                    ## non-graded section, we just show the exam format and the due date
-                                                    ## this is the standard case in edx-platform
-                                                    <span
-                                                        class="localized-datetime subtitle-name"
-                                                        data-datetime="${data_datetime}"
-                                                        data-string="${data_string}"
-                                                        data-timezone="${user_timezone}"
-                                                        data-language="${user_language}"
-                                                    ></span>
-
-                        % if subsection.get('graded'):
-                                                <span class="sr">&nbsp;${_("This content is graded")}</span>
-                        % endif
-                    % endif
-                                            </span>
-                % endif
-                                        </div> <!-- /details -->
+            
+                                        </div>
                             </a>
                         </li>
             % endfor
@@ -171,8 +110,6 @@ dates_banner_displayed = False
     % endif
 </main>
 
-<%static:require_module_async module_name="js/dateutil_factory" class_name="DateUtilFactory">
-    DateUtilFactory.transform('.localized-datetime');
 </%static:require_module_async>
 
 <%static:webpack entry="CourseOutline">
