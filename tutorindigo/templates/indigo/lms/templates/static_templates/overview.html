@@ -30,7 +30,7 @@ from common.djangoapps.student.models import CourseEnrollment
                 flex: 1 1;
                 position: relative;
                 right: calc((100vw - (100%)) / 2 );
-                width: 100vw;
+                width: calc(100vw - 8px);
                 height: 600px;
                 margin: 0 0 20px;
                 color: #fff;
@@ -44,7 +44,6 @@ from common.djangoapps.student.models import CourseEnrollment
                 text-align: left;
                 color: #f08200;
                 background: linear-gradient(90deg, rgb(255, 255, 255, 0.85), transparent);
-                width: 1375px;
             }
 
             .blocker-text {
@@ -64,10 +63,6 @@ from common.djangoapps.student.models import CourseEnrollment
                 .blocker-text {
                     font-size: 1em;
                     line-height: 1em;
-                }
-
-                .blocker-text-wrapper {
-                    width: 100%;
                 }
             }
         </style>
