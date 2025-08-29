@@ -103,12 +103,36 @@ is_course_staff = bool(user and course and has_access(user, 'staff', course, cou
                         </li>
             % endfor
                     </ol>
+                    <div id="iframe-container"></div>
                 </li>
         % endfor
         </ol>
     % endif
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
+          const courseLinks = document.querySelectorAll("li.subsection a");
+          courseLinks.forEach(link => {
+            link.addEventListener("click", function (event) {
+              event.preventDefault(); // stop normal navigation
+        
+              const targetUrl = this.getAttribute("href");
+        
+              // Create or update the iframe
+              let iframe = document.querySelector("#iframe-container iframe");
+              if (!iframe) {
+                iframe = document.createElement("iframe");
+                iframe.sandbox = "allow-same-origin allow-scripts allow-forms";
+                iframe.style.width = "100%";
+                iframe.style.height = "800px";
+                iframe.style.border = "1px solid #ccc";
+                iframe.setAttribute("allowfullscreen", "true");
+                document.getElementById("iframe-container").appendChild(iframe);
+              }
+        
+              // Update the iframe src
+              iframe.src = targetUrl;
+            });
+          });
           const sectionButtons = document.querySelectorAll('.section-name.accordion-trigger');
         
           sectionButtons.forEach(button => {
