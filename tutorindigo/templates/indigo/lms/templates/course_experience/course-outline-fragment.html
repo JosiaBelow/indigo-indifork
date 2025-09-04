@@ -119,7 +119,7 @@ is_course_staff = bool(user and course and has_access(user, 'staff', course, cou
               const targetUrl = this.getAttribute("href");
         
               // Create or update the iframe
-              let iframeContainer = link.parentElement.parentElement.lastChild;
+              let iframeContainer = link.parentElement.parentElement.querySelector('.iframe-container');
               let iframe = iframeContainer.firstChild;
               if (!iframe) {
                 iframe = document.createElement("iframe");
