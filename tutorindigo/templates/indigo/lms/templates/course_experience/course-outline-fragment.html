@@ -102,8 +102,9 @@ is_course_staff = bool(user and course and has_access(user, 'staff', course, cou
                             </a>
                         </li>
             % endfor
+                    
+                    <div class="iframe-container"></div>
                     </ol>
-                    <div id="iframe-container"></div>
                 </li>
         % endfor
         </ol>
@@ -118,7 +119,8 @@ is_course_staff = bool(user and course and has_access(user, 'staff', course, cou
               const targetUrl = this.getAttribute("href");
         
               // Create or update the iframe
-              let iframe = document.querySelector("#iframe-container iframe");
+              let iframeContainer = link.parentElement.parentElement.lastChild;
+              let iframe = iframeContainer.firstChild;
               if (!iframe) {
                 iframe = document.createElement("iframe");
                 iframe.sandbox = "allow-same-origin allow-scripts allow-forms";
@@ -126,7 +128,7 @@ is_course_staff = bool(user and course and has_access(user, 'staff', course, cou
                 iframe.style.height = "800px";
                 iframe.style.border = "1px solid #ccc";
                 iframe.setAttribute("allowfullscreen", "true");
-                document.getElementById("iframe-container").appendChild(iframe);
+                iframeContainer.appendChild(iframe);
               }
         
               // Update the iframe src
