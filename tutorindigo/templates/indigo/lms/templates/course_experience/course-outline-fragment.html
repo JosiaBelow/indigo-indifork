@@ -111,23 +111,6 @@ is_course_staff = bool(user and course and has_access(user, 'staff', course, cou
     % endif
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
-            
-          const sectionButtons = document.querySelectorAll('.section-name.accordion-trigger');
-        
-          sectionButtons.forEach(button => {
-            button.addEventListener('click', () => {
-              const icon = button.querySelector('.fa');
-        
-              if (!icon) return;
-        
-              // Toggle fa-minus (fa-plus remains)
-              if (icon.classList.contains('fa-minus')) {
-                icon.classList.remove('fa-minus');
-              } else {
-                icon.classList.add('fa-minus');
-              }
-            });
-          });
           const courseLinks = document.querySelectorAll("li.subsection a");
           courseLinks.forEach(link => {
             link.addEventListener("click", function (event) {
