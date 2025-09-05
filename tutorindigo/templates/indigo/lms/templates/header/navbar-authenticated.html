@@ -83,7 +83,7 @@ from common.djangoapps.student.models import CourseEnrollment
     <%include file="user_dropdown.html"/>
   </div>
 	% if settings.FEATURES.get('ENABLE_DASHBOARD_SEARCH'):
-		<div id="dashboard-search-bar" style="width: 270px; right: calc((100vw - min(1420px, 100%)) / 2); top: 80px; z-index: 1000; position: fixed;" class="search-bar dashboard-search-bar hidden-mobile" role="search" aria-label="Dashboard">
+		<div id="dashboard-search-bar" style="width: 270px; right: calc((100vw - min(1420px, 100%)) / 2); top: 80px; z-index: 200; position: fixed;" class="search-bar dashboard-search-bar hidden-mobile" role="search" aria-label="Dashboard">
 			<form class="search-form">
 				<label for="dashboard-search-input">${_('Search Your Courses')}</label>
 				<div class="search-field-wrapper">
@@ -142,4 +142,5 @@ from common.djangoapps.student.models import CourseEnrollment
   </script>
 </div>
 {% endraw %}
+
 
