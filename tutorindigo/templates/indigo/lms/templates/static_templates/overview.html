@@ -88,24 +88,6 @@ from common.djangoapps.student.models import CourseEnrollment
             }).call(this, require || RequireJS.require);
         </script>
         <section class="find-courses" style="top:-56px; position: relative;">
-             % if settings.FEATURES.get('ENABLE_DASHBOARD_SEARCH') and user.is_authenticated:
-                <div id="dashboard-search-bar" style="width: 270px; right: calc((100vw - min(1420px, 100%)) / 2); top: 80px; z-index: 1000; position: fixed;" class="search-bar dashboard-search-bar hidden-mobile" role="search" aria-label="Dashboard">
-                    <form class="search-form">
-                        <label for="dashboard-search-input">${_('Search Your Courses')}</label>
-                        <div class="search-field-wrapper">
-                            <input id="dashboard-search-input" type="text" class="search-field" />
-                            <button type="submit" class="search-button" title="${_('Search')}">
-                                <span class="icon fa fa-search" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" class="cancel-button" title="${_('Clear search')}">
-                                <span class="icon fa fa-remove" aria-hidden="true"></span>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                <div id="dashboard-search-results" class="search-results dashboard-search-results"
-                    style="top: 80px; position: relative; margin-bottom: 82px;"></div>
-                % endif
             <section class="courses-container">
                 <div class="courses" role="region" aria-label="Kursliste Investitionsförderung">
                     <div class="blocker-wrapper" style="background-image: url('https://dz-bank.s3.eu-central-1.amazonaws.com/images/Investitionsfoerderung.webp'); background-size: cover; background-position: center; min-height: 250px; display: flex; align-items: center; justify-content: flex-start; text-align: left; margin-bottom: 2rem;">
@@ -396,5 +378,6 @@ from common.djangoapps.student.models import CourseEnrollment
         </section>
     </main>
     {% endraw %}
+
 
 
