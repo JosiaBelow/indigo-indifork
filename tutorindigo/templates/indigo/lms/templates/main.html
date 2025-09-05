@@ -199,7 +199,17 @@ from common.djangoapps.pipeline_mako import render_require_js_path_overrides
     <%include file="/page_banner.html" />
 
     <div class="marketing-hero"><%block name="marketing_hero"></%block></div>
-
+    % if request.path.endswith("/course/") and request.path.startswith("/courses/"):
+    <header class="page-header has-secondary">
+      <div class="blocker-wrapper" style="background-image: url('/asset-v1:${str(course.id)[10:]}+type@asset+block@Header.webp'); background-size: cover; background-position: center; min-height: 250px; display: flex; align-items: center; justify-content: flex-start; text-align: left; margin-bottom: 2rem;">
+        <div class="blocker-text-wrapper">
+          <h2 class="blocker-text" style="font-size: 2.5rem; font-weight: bold;">${course.display_name_with_default}</h2>
+          <p class="blocker-description"></p>
+          <a href="/overview" class="btn">Zurück zur Kursübersicht</a>
+        </div>
+      </div>
+    </header>
+    % endif
     <div class="content-wrapper main-container" id="content" dir="${static.dir_rtl()}">
       ${next.body()}
       <%block name="bodyextra"/>
