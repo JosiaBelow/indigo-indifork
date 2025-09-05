@@ -30,7 +30,7 @@ from common.djangoapps.student.models import CourseEnrollment
                 flex: 1 1;
                 position: relative;
                 right: calc((100vw - (100%)) / 2 );
-                width: calc(100vw - 8px);
+                width: min(1920px,calc(100vw - 8px));
                 height: 600px;
                 margin: 0px calc(max(0px, (100vw - 1920px) / 2)) 20px calc(max(0px, (100vw - 1920px) / 2));
                 color: #fff;
@@ -396,3 +396,4 @@ from common.djangoapps.student.models import CourseEnrollment
         </section>
     </main>
     {% endraw %}
+
