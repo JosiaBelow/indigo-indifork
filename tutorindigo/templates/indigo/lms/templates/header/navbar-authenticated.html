@@ -10,6 +10,21 @@ from django.urls import reverse
 from common.djangoapps.edxmako.shortcuts import marketing_link
 from django.utils.translation import ugettext as _
 from openedx.core.djangoapps.site_configuration import helpers as configuration_helpers
+
+from openedx.core.djangoapps.user_api.accounts.image_helpers import get_profile_image_urls_for_user
+from openedx.features.enterprise_support.utils import get_enterprise_learner_generic_name
+import pytz
+import six
+from datetime import datetime, timedelta
+from django.template import RequestContext
+from common.djangoapps.entitlements.models import CourseEntitlement
+from common.djangoapps.third_party_auth import pipeline
+from common.djangoapps.util.date_utils import strftime_localized
+from opaque_keys.edx.keys import CourseKey
+from openedx.core.djangoapps.content.course_overviews.models import CourseOverview
+from openedx.core.djangolib.js_utils import dump_js_escaped_json, js_escaped_string
+from openedx.core.djangolib.markup import HTML, Text
+from common.djangoapps.student.models import CourseEnrollment
 %>
 
 <%
@@ -67,6 +82,24 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
     </div>
     <%include file="user_dropdown.html"/>
   </div>
+	% if settings.FEATURES.get('ENABLE_DASHBOARD_SEARCH'):
+		<div id="dashboard-search-bar" style="width: 270px; right: calc((100vw - min(1420px, 100%)) / 2); top: 80px; z-index: 1000; position: fixed;" class="search-bar dashboard-search-bar hidden-mobile" role="search" aria-label="Dashboard">
+			<form class="search-form">
+				<label for="dashboard-search-input">${_('Search Your Courses')}</label>
+				<div class="search-field-wrapper">
+					<input id="dashboard-search-input" type="text" class="search-field" />
+					<button type="submit" class="search-button" title="${_('Search')}">
+						<span class="icon fa fa-search" aria-hidden="true"></span>
+					</button>
+					<button type="button" class="cancel-button" title="${_('Clear search')}">
+						<span class="icon fa fa-remove" aria-hidden="true"></span>
+					</button>
+				</div>
+			</form>
+		</div>
+		<div id="dashboard-search-results" class="search-results dashboard-search-results"
+			style="top: 80px; position: relative; margin-bottom: 82px;"></div>
+	% endif
   <script type="text/javascript" src="https://dz-bank.s3.eu-central-1.amazonaws.com/header-menu.js"></script>	
   <script type="text/javascript">
    document.querySelector(".discover-new-link").addEventListener("mouseover", (e) => {
@@ -109,3 +142,4 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
   </script>
 </div>
 {% endraw %}
+
