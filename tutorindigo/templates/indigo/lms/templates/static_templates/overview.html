@@ -88,6 +88,8 @@ from common.djangoapps.student.models import CourseEnrollment
             }).call(this, require || RequireJS.require);
         </script>
         <section class="find-courses" style="top:-56px; position: relative;">
+            <div id="dashboard-search-results" class="search-results dashboard-search-results"
+                    style="top: 80px; position: relative; margin-bottom: 82px;"></div>
             <section class="courses-container">
                 <div class="courses" role="region" aria-label="Kursliste Investitionsförderung">
                     <div class="blocker-wrapper" style="background-image: url('https://dz-bank.s3.eu-central-1.amazonaws.com/images/Investitionsfoerderung.webp'); background-size: cover; background-position: center; min-height: 250px; display: flex; align-items: center; justify-content: flex-start; text-align: left; margin-bottom: 2rem;">
@@ -378,6 +380,7 @@ from common.djangoapps.student.models import CourseEnrollment
         </section>
     </main>
     {% endraw %}
+
 
 
 
