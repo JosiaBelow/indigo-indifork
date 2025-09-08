@@ -88,10 +88,16 @@ from common.djangoapps.student.models import CourseEnrollment
                     DashboardSearchFactory();
                 });
             }).call(this, require || RequireJS.require);
+            window.addEventListener('load', function () {
+            if (window.location.href.includes('#')) {
+                let scrollto = window.location.href.split('#')[1];
+                scrollTo(0,document.querySelector('.'+scrollto).getBoundingClientRect().y-142)
+            }
+            });
         </script>
         <section class="find-courses" style="top:-56px; position: relative;">
             <section class="courses-container">
-                <div class="courses" role="region" aria-label="Kursliste Investitionsförderung">
+                <div class="courses investitionsfoerderung" role="region" aria-label="Kursliste Investitionsförderung">
                     <div class="blocker-wrapper" style="background-image: url('https://dz-bank.s3.eu-central-1.amazonaws.com/images/Investitionsfoerderung.webp'); background-size: cover; background-position: center; min-height: 250px; display: flex; align-items: center; justify-content: flex-start; text-align: left; margin-bottom: 2rem;">
                         <div class="blocker-text-wrapper">
                             <h2 class="blocker-text" style="font-size: 2.5rem; font-weight: bold;">Investitionsförderung</h2>
@@ -198,7 +204,7 @@ from common.djangoapps.student.models import CourseEnrollment
                     </ul>
                 </div>
                 
-                <div class="courses" role="region" aria-label="Firmenkundengeschäft">
+                <div class="courses firmenkundengeschaeft" role="region" aria-label="Firmenkundengeschäft">
                      <div class="blocker-wrapper" style="background-image: url('https://dz-bank.s3.eu-central-1.amazonaws.com/images/Finanzkundengeschaeft.webp'); background-size: cover; background-position: center; min-height: 250px; display: flex; align-items: center; justify-content: flex-start; text-align: left; margin-bottom: 2rem;">
                         <div class="blocker-text-wrapper">
                             <h2 class="blocker-text" style="font-size: 2.5rem; font-weight: bold;">Firmenkundengeschäft</h2>
@@ -257,7 +263,7 @@ from common.djangoapps.student.models import CourseEnrollment
                     </ul>
                 </div>
                 
-                <div class="courses" role="region" aria-label="KompetenzCenter Nachfolge">
+                <div class="courses nachfolge" role="region" aria-label="KompetenzCenter Nachfolge">
                     <div class="blocker-wrapper" style="background-image: url('https://dz-bank.s3.eu-central-1.amazonaws.com/images/KompetenzCenter_Nachfolge.webp'); background-size: cover; background-position: center; min-height: 250px; display: flex; align-items: center; justify-content: flex-start; text-align: left; margin-bottom: 2rem;">
                         <div class="blocker-text-wrapper">
                             <h2 class="blocker-text" style="font-size: 2.5rem; font-weight: bold;">KompetenzCenter Nachfolge</h2>
@@ -280,7 +286,7 @@ from common.djangoapps.student.models import CourseEnrollment
                     </ul>
                 </div>
                 
-                <div class="courses" role="region" aria-label="Strukturierte Finanzierungen - Auslandsgeschäft">
+                <div class="courses auslandsgeschaeft" role="region" aria-label="Strukturierte Finanzierungen - Auslandsgeschäft">
                     <div class="blocker-wrapper" style="background-image: url('https://dz-bank.s3.eu-central-1.amazonaws.com/images/Strukturierte_Finanzierungen_Auslandsgeschaeft.webp'); background-size: cover; background-position: center; min-height: 250px; display: flex; align-items: center; justify-content: flex-start; text-align: left; margin-bottom: 2rem;">
                         <div class="blocker-text-wrapper">
                             <h2 class="blocker-text" style="font-size: 2.5rem; font-weight: bold;">Strukturierte Finanzierungen - Auslandsgeschäft</h2>
@@ -380,6 +386,7 @@ from common.djangoapps.student.models import CourseEnrollment
         </section>
     </main>
     {% endraw %}
+
 
 
 
