@@ -102,12 +102,12 @@ from common.djangoapps.student.models import CourseEnrollment
   <script type="text/javascript">
    document.querySelector(".discover-new-link").addEventListener("mouseover", (e) => {
    var link = document.querySelector(".discover-new-link");
-   link.setAttribute("href", "/overview");
+   link.setAttribute("href", "/startseite");
    return false;
    });
    document.querySelector(".header-logo a").addEventListener("mouseover", (e) => {
    var link = document.querySelector(".header-logo a");
-   link.setAttribute("href", "/overview");
+   link.setAttribute("href", "/startseite");
    return false;
    });
    window.addEventListener('load', function () {
@@ -140,6 +140,7 @@ from common.djangoapps.student.models import CourseEnrollment
   </script>
 </div>
 {% endraw %}
+
 
 
 
