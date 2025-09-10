@@ -38,7 +38,7 @@ is_course_staff = bool(user and course and has_access(user, 'staff', course, cou
             scored = 'scored' if section.get('scored', False) else ''
             %>
                 <li class="outline-item section ${scored}" style="display: contents; height: 100%;">
-                    <button class="section-name accordion-trigger outline-button" style="margin-top: 10px;"
+                    <button class="section-name accordion-trigger outline-button" style="margin-top: 20px;"
                             aria-expanded="${ 'true' if section_is_auto_opened else 'false' }"
                             aria-controls="${ section['id'] }_contents"
                             id="${ section['id'] }">
