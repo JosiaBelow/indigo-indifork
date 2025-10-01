@@ -385,8 +385,29 @@ from common.djangoapps.student.models import CourseEnrollment
                 </aside>
             </section>
         </section>
+        <script>
+            async function checkDomain() {
+                const resp = await fetch("/api/user/v1/me");
+                if (!resp.ok) return;
+                const me = await resp.json();
+                const username = me.username;
+                const response = await fetch(`/api/user/v1/accounts/${username}`);
+                if (!response.ok) return;
+                const user = await response.json();
+                const domain = user.email.split("@").pop().toLowerCase();
+                if (domain === "nuuone.de") {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            if (checkDomain()) {
+                console.log("Domain Check Success");
+            }
+        </script>
     </main>
     {% endraw %}
+
 
 
 
