@@ -106,6 +106,18 @@ from common.djangoapps.student.models import CourseEnrollment
                         </div>
                     </div>
                     <ul class="courses-listing courses-list">
+                        <li class="courses-listing-item geschlossenerBereich">
+                            <article class="course" role="region" aria-label="Geschlossener Bereich">
+                                <a href="/courses/course-v1:dz-bank+dz3+firmenkunden/course/">
+                                    <header class="course-image">
+                                        <div class="cover-image">
+                                            <img src="https://dz-bank.s3.eu-central-1.amazonaws.com/images/Gewerbe.webp" alt="Gewerbe dz3" />
+                                        </div>
+                                    </header>
+                                    <span class="course-title">Geschlossener Bereich</span>
+                                </a>
+                            </article>
+                        </li>
                         <li class="courses-listing-item">
                             <article class="course" role="region" aria-label="Gewerbe">
                                 <a href="/courses/course-v1:dz-bank+dz3+firmenkunden/course/">
@@ -385,7 +397,7 @@ from common.djangoapps.student.models import CourseEnrollment
                 </aside>
             </section>
         </section>
-        <script>
+        <script type="text/javascript">
             async function checkDomain() {
                 const resp = await fetch("/api/user/v1/me");
                 if (!resp.ok) return;
@@ -402,11 +414,12 @@ from common.djangoapps.student.models import CourseEnrollment
                 }
             }
             if (checkDomain()) {
-                console.log("Domain Check Success");
+                document.querySelector('.geschlossenerBereich').style.display = "block";
             }
         </script>
     </main>
     {% endraw %}
+
 
 
 
