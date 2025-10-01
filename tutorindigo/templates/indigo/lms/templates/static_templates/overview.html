@@ -403,7 +403,7 @@ from common.djangoapps.student.models import CourseEnrollment
                 if (!resp.ok) return;
                 const me = await resp.json();
                 const username = me.username;
-                const response = await fetch(`/api/user/v1/accounts/${username}`);
+                const response = await fetch("/api/user/v1/accounts/"+username);
                 if (!response.ok) return;
                 const user = await response.json();
                 const domain = user.email.split("@").pop().toLowerCase();
@@ -419,6 +419,7 @@ from common.djangoapps.student.models import CourseEnrollment
         </script>
     </main>
     {% endraw %}
+
 
 
 
