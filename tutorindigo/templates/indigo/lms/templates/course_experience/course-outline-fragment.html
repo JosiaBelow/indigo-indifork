@@ -168,6 +168,7 @@ is_course_staff = bool(user and course and has_access(user, 'staff', course, cou
               .replace(/\s+/g, '+')           // Replace spaces with +
               .replace(/[()]/g, '')           // Remove parentheses
               .replace(/\./g, '')             // Remove dots
+              .replace(/\//g, '')             // Remove slash
               .replace(/!/g, '')              // Remove exclamation marks
               .replace(/\?/g, '');            // Remove question marks
             
