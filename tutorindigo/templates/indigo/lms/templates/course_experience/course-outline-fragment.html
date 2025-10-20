@@ -137,6 +137,75 @@ is_course_staff = bool(user and course and has_access(user, 'staff', course, cou
           });
         });
     </script>
+    <script>
+        // Get the course name from the blocker-text element
+        const courseName = document.querySelector('.blocker-text')?.textContent.trim() || document.querySelector('.page-title')?.textContent.trim();
+        
+        if (courseName) {
+          console.log('Course detected: ' + courseName);
+          // Base S3 URL
+          const baseUrl = 'https://dz-bank.s3.eu-central-1.amazonaws.com/';
+          
+          // Find all subsection elements with IDs
+          const subsections = document.querySelectorAll('li.subsection a.outline-button[id]');
+          
+          subsections.forEach(subsection => {
+            // Get the subsection title (h4 text)
+            const titleElement = subsection.querySelector('h4.subsection-title');
+            if (!titleElement) return;
+            
+            const title = titleElement.textContent.trim();
+            
+            // Skip if image already exists
+            if (subsection.querySelector('img')) {
+              console.log('Image already exists for: ' + title);
+              return;
+            }
+            
+            // Construct the image filename from the title
+            // Remove special characters and replace spaces with +
+            const filename = title
+              .replace(/\s+/g, '+')           // Replace spaces with +
+              .replace(/[()]/g, '')           // Remove parentheses
+              .replace(/\./g, '')             // Remove dots
+              .replace(/!/g, '')              // Remove exclamation marks
+              .replace(/\?/g, '');            // Remove question marks
+            
+            // Construct full S3 URL
+            const imageUrl = baseUrl + encodeURIComponent(courseName) + '/Thumbnails/' + filename + '.webp';
+            
+            console.log('Attempting to load: ' + title + ' -> ' + imageUrl);
+            
+            // Create and test the image
+            const testImg = new Image();
+            testImg.onload = function() {
+              // Image exists, add it to the page
+              const imgNode = document.createElement('img');
+              imgNode.style = 'width: 100%;';
+              imgNode.src = imageUrl;
+              subsection.insertBefore(imgNode, subsection.firstChild);
+              
+              // Add play button
+              const playButton = document.createElement('span');
+              playButton.classList = 'btn-play fa fa-youtube-play fa-2x';
+              playButton.style = 'position: absolute; left: 50%; top: 45%; transform: translate(-50%, -50%); opacity: 0.6;';
+              playButton.setAttribute('aria-hidden', 'true');
+              subsection.style = 'position: relative; min-height: 232px;';
+              subsection.insertBefore(playButton, imgNode);
+              
+              console.log('✓ Successfully added image for: ' + title);
+            };
+            
+            testImg.onerror = function() {
+              console.warn('✗ Image not found: ' + imageUrl);
+            };
+            
+            testImg.src = imageUrl;
+          });
+        } else {
+          console.error('Course name not found in .blocker-text element');
+        }
+    </script>
 </main>
 
 <%static:webpack entry="CourseOutline">
