@@ -190,7 +190,7 @@ is_course_staff = bool(user and course and has_access(user, 'staff', course, cou
               playButton.classList = 'btn-play fa fa-youtube-play fa-2x';
               playButton.style = 'position: absolute; left: 50%; top: 45%; transform: translate(-50%, -50%); opacity: 0.6;';
               playButton.setAttribute('aria-hidden', 'true');
-              subsection.style = 'position: relative; min-height: 232px;';
+              subsection.style = 'position: relative;';
               subsection.insertBefore(playButton, imgNode);
               
               console.log('✓ Successfully added image for: ' + title);
