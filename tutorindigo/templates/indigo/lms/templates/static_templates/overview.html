@@ -407,7 +407,7 @@ from common.djangoapps.student.models import CourseEnrollment
                 if (!response.ok) return;
                 const user = await response.json();
                 const domain = user.email.split("@").pop().toLowerCase();
-                if (domain === "nuuone.de") {
+                if (domain === "schwaebisch-hall.de") {
                     return true;
                 } else {
                     return false;
@@ -419,6 +419,7 @@ from common.djangoapps.student.models import CourseEnrollment
         </script>
     </main>
     {% endraw %}
+
 
 
 
