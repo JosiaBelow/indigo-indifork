@@ -396,17 +396,18 @@ from common.djangoapps.student.models import CourseEnrollment
                 const user = await response.json();
                 const domain = user.email.split("@").pop().toLowerCase();
                 if (domain === "schwaebisch-hall.de") {
+                    document.querySelector('.geschlossenerBereich').style.display = "block";
                     return true;
                 } else {
+                    document.querySelector('.geschlossenerBereich').remove();
                     return false;
                 }
             }
-            if (checkDomain()) {
-                document.querySelector('.geschlossenerBereich').style.display = "block";
-            }
+            checkDomain()
         </script>
     </main>
     {% endraw %}
+
 
 
 
