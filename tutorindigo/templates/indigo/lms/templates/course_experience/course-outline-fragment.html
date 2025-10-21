@@ -112,29 +112,84 @@ is_course_staff = bool(user and course and has_access(user, 'staff', course, cou
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
           const courseLinks = document.querySelectorAll("li.subsection a");
+        
+          // --- Helper: extract block ID from URL ---
+          function extractBlockId(url) {
+            const match = url.match(/block@([^/?#]+)/);
+            return match ? match[1] : null;
+          }
+        
+          // --- Helper: close all iframes ---
+          function closeAllIframes() {
+            document.querySelectorAll('.iframe-container').forEach(container => container.remove());
+          }
+        
+          // --- Helper: open a video link in an iframe ---
+          function openVideo(targetUrl, linkElement) {
+            // Close all existing iframes before opening a new one
+            closeAllIframes();
+        
+            // Create a fresh iframe container
+            let iframeContainer = linkElement.parentElement.parentElement.querySelector('.iframe-container');
+            if (!iframeContainer) {
+              iframeContainer = document.createElement("div");
+              iframeContainer.className = "iframe-container";
+              linkElement.parentElement.parentElement.appendChild(iframeContainer);
+            }
+        
+            // Create and configure iframe
+            const iframe = document.createElement("iframe");
+            iframe.sandbox = "allow-same-origin allow-scripts allow-forms";
+            iframe.style.width = "100%";
+            iframe.style.height = "800px";
+            iframe.style.border = "1px solid #ccc";
+            iframe.setAttribute("allowfullscreen", "true");
+            iframe.src = targetUrl;
+        
+            iframeContainer.appendChild(iframe);
+            iframe.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        
+          // --- Normal click handling ---
           courseLinks.forEach(link => {
             link.addEventListener("click", function (event) {
-              event.preventDefault(); // stop normal navigation
-        
+              event.preventDefault();
               const targetUrl = this.getAttribute("href");
-        
-              // Create or update the iframe
-              let iframeContainer = link.parentElement.parentElement.querySelector('.iframe-container');
-              let iframe = iframeContainer.firstChild;
-              if (!iframe) {
-                iframe = document.createElement("iframe");
-                iframe.sandbox = "allow-same-origin allow-scripts allow-forms";
-                iframe.style.width = "100%";
-                iframe.style.height = "800px";
-                iframe.style.border = "1px solid #ccc";
-                iframe.setAttribute("allowfullscreen", "true");
-                iframeContainer.appendChild(iframe);
-              }
-        
-              // Update the iframe src
-              iframe.src = targetUrl;
+              openVideo(targetUrl, this);
             });
           });
+        
+          // --- Auto-load logic ---
+          const params = new URLSearchParams(window.location.search);
+          const autoVideoId = params.get('video'); // e.g. ?video=35adca637a06489e920dc6ea12720e59
+        
+          if (autoVideoId) {
+            const matchingLink = Array.from(courseLinks).find(link => {
+              const linkBlockId = extractBlockId(link.href);
+              return linkBlockId === autoVideoId;
+            });
+        
+            if (matchingLink) {
+              //Close all open sections first
+              document.querySelectorAll("button.section-name.accordion-trigger.outline-button.is-open")
+                .forEach(btn => btn.click());
+        
+              //Open the section that contains our video
+              const section = matchingLink.closest("li.outline-item.section");
+              const sectionButton = section ? section.querySelector(":scope > button.section-name.accordion-trigger.outline-button") : null;
+              if (sectionButton && !sectionButton.classList.contains("is-open")) {
+                sectionButton.click();
+              }
+        
+              //Wait a bit for the section to open, then load and scroll
+              setTimeout(() => {
+                const targetUrl = matchingLink.getAttribute("href");
+                openVideo(targetUrl, matchingLink);
+              }, 500);
+            } else {
+              console.warn("No matching video link found for ID:", autoVideoId);
+            }
+          }
         });
     </script>
     <script>
