@@ -139,7 +139,7 @@ is_course_staff = bool(user and course and has_access(user, 'staff', course, cou
     </script>
     <script>
         // Get the course name from the blocker-text element
-        const courseName = document.querySelector('.blocker-text')?.textContent.trim() || document.querySelector('.page-title')?.textContent.trim();
+        const courseName = document.querySelector('.blocker-text')?.textContent.trim().replace(' ', '+') || document.querySelector('.page-title')?.textContent.trim().replace(' ', '+');
         
         if (courseName) {
           console.log('Course detected: ' + courseName);
