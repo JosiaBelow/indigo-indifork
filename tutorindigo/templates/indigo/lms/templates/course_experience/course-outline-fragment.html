@@ -173,7 +173,7 @@ is_course_staff = bool(user and course and has_access(user, 'staff', course, cou
               .replace(/\?/g, '');            // Remove question marks
             
             // Construct full S3 URL
-            const imageUrl = baseUrl + encodeURIComponent(courseName) + '/Thumbnails/' + filename + '.webp';
+            const imageUrl = baseUrl + encodeURIComponent(courseName).replace(/%2B/g, '+') + '/Thumbnails/' + filename + '.webp';
             
             console.log('Attempting to load: ' + title + ' -> ' + imageUrl);
             
