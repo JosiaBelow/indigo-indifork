@@ -395,7 +395,7 @@ from common.djangoapps.student.models import CourseEnrollment
                 if (!response.ok) return;
                 const user = await response.json();
                 const domain = user.email.split("@").pop().toLowerCase();
-                if (domain === "schwaebisch-hall.de") {
+                if (domain === "schwaebisch-hall.de" || domain === "dzbank.de") {
                     document.querySelector('.geschlossenerBereich').style.display = "block";
                     return true;
                 } else {
@@ -407,6 +407,7 @@ from common.djangoapps.student.models import CourseEnrollment
         </script>
     </main>
     {% endraw %}
+
 
 
 
